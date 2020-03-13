@@ -11,7 +11,7 @@ import java.io.FileInputStream;
  */
 public class DataSources {
 
-    public static String[][] excel(final String sourceFile, final String selectedSheet) {
+    public String[][] excel(final String sourceFile, final String selectedSheet) {
         String[][] resultsIntoList = null;
         try {
 
@@ -72,7 +72,7 @@ public class DataSources {
         return resultsIntoList;
     }
 
-    public static String[][] excel(final String sourceFile, final String selectedSheet, int fromRow, final int toRow) {
+    public String[][] excel(final String sourceFile, final String selectedSheet, int fromRow, final int toRow) {
         String[][] resultsIntoList = null;
         try {
 
