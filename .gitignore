@@ -1,0 +1,7 @@
+/target/
+/test-output/
+.classpath
+.project
+/.idea/
+/.settings/
+test-automation-wrapper.iml
