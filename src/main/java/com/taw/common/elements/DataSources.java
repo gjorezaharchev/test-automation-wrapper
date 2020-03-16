@@ -60,7 +60,7 @@ public class DataSources {
                                 break;
                         }
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        //e.printStackTrace();
                     }
                 }
             }
@@ -122,7 +122,7 @@ public class DataSources {
                         }
 
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        //e.printStackTrace();
                     }
                 }
                 fromRow++;

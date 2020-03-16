@@ -12,7 +12,9 @@ public class Input extends ElementBase {
      * @param value to be used
      */
     public void type(final By by, final String value) {
-        getElement(by).sendKeys(value);
+        if (value != null) {
+            getElement(by).sendKeys(value);
+        }
     }
 
     /**
@@ -29,7 +31,9 @@ public class Input extends ElementBase {
      * @param value to be used
      */
     public void type(final By by, final int index, final String value) {
-        getAllElements(by).get(index).sendKeys(value);
+        if (value != null) {
+            getAllElements(by).get(index).sendKeys(value);
+        }
     }
 
     /**
