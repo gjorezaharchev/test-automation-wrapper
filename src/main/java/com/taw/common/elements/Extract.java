@@ -98,12 +98,7 @@ public class Extract extends ElementBase {
      * @return attribute value
      */
     public String attributeValue(final By by, final int index, final String attribute) {
-        try {
-            return getAllElements(by).get(index).getAttribute(attribute);
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
-            return null;
-        }
+        return getAllElements(by).get(index).getAttribute(attribute);
     }
 
     /**
@@ -111,12 +106,7 @@ public class Extract extends ElementBase {
      * @return web element
      */
     public WebElement element(final By by) {
-        try {
-            return waitElement.until(ExpectedConditions.visibilityOfElementLocated(by));
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
-            return null;
-        }
+        return waitElement.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
     /**
@@ -124,12 +114,7 @@ public class Extract extends ElementBase {
      * @return list of elements
      */
     public List<WebElement> allElements(final By by) {
-        try {
-            return waitElement.until(ExpectedConditions.visibilityOfAllElementsLocatedBy((by)));
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
-            return null;
-        }
+        return waitElement.until(ExpectedConditions.visibilityOfAllElementsLocatedBy((by)));
     }
 
     /**
@@ -138,13 +123,8 @@ public class Extract extends ElementBase {
      * @return alert text
      */
     public String alertText() {
-        try {
-            waitElement.until(ExpectedConditions.alertIsPresent());
-            Alert alert = driver.switchTo().alert();
-            return alert.getText();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+        waitElement.until(ExpectedConditions.alertIsPresent());
+        Alert alert = driver.switchTo().alert();
+        return alert.getText();
     }
 }

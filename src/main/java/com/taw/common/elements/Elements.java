@@ -14,7 +14,6 @@ public class Elements extends ElementBase {
     protected final Alerts alert = new Alerts();
 
     protected final Extract extract = new Extract();
-    protected final Validate validate = new Validate();
 
     protected final Misc misc = new Misc();
     protected final Wait wait = new Wait();

@@ -28,7 +28,6 @@ public class DataSources {
 
             for (int i = 0; i < rowCount; i++) {
                 for (int j = 0; j < collCount; j++) {
-                    try {
                         switch (sheet.getRow(i + 1).getCell(j).getCellTypeEnum()) {
                         /*case BLANK:
                             resultsIntoList[i][j] = "";
@@ -59,9 +58,6 @@ public class DataSources {
                                 resultsIntoList[i][j] = "";
                                 break;
                         }
-                    } catch (Exception e) {
-                        //e.printStackTrace();
-                    }
                 }
             }
 
@@ -89,7 +85,6 @@ public class DataSources {
 
             for (int i = 0; i < rowsTotal; i++) {
                 for (int j = 0; j < collCount; j++) {
-                    try {
                         switch (sheet.getRow(fromRow).getCell(j).getCellTypeEnum()) {
                         /*case BLANK:
                             resultsIntoList[i][j] = "";
@@ -120,10 +115,6 @@ public class DataSources {
                                 resultsIntoList[i][j] = "";
                                 break;
                         }
-
-                    } catch (Exception e) {
-                        //e.printStackTrace();
-                    }
                 }
                 fromRow++;
             }

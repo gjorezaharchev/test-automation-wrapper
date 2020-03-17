@@ -138,6 +138,7 @@ public class Wait extends ElementBase {
      */
     public boolean toBecomeInvisible(final By by) {
         try {
+            getElement(by);
             waitElement.until(ExpectedConditions.invisibilityOfElementLocated(by));
             return true;
         } catch (NoSuchElementException e) {
@@ -153,6 +154,7 @@ public class Wait extends ElementBase {
      */
     public boolean toBecomeInvisible(final By by, final long timeout) {
         try {
+            getElement(by);
             new WebDriverWait(driver, timeout).until(ExpectedConditions.invisibilityOfElementLocated(by));
             return true;
         } catch (NoSuchElementException e) {
@@ -166,6 +168,7 @@ public class Wait extends ElementBase {
      * @param index element order
      */
     public void toBecomeInvisible(final By by, final int index) {
+        getElement(by);
         waitElement.until(ExpectedConditions.invisibilityOfAllElements(getAllElements(by)));
     }
 
@@ -189,12 +192,7 @@ public class Wait extends ElementBase {
      * @param timeout timeout
      */
     public void forAsynchronousRequest(int timeout) {
-        try {
-            driver.manage().timeouts().setScriptTimeout(timeout, TimeUnit.MILLISECONDS);
-
-        } catch (NoSuchElementException e) {
-            e.printStackTrace();
-        }
+        driver.manage().timeouts().setScriptTimeout(timeout, TimeUnit.MILLISECONDS);
     }
 
     /**

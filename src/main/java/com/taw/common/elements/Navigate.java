@@ -86,33 +86,21 @@ public class Navigate extends ElementBase {
      * @param frame frame to switch
      */
     public void switchToFrame(final String frame) {
-        try {
-            driver.switchTo().frame(frame);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        driver.switchTo().frame(frame);
     }
 
     /**
      * @param frame frame to switch
      */
     public void switchToFrame(final int frame) {
-        try {
-            driver.switchTo().frame(frame);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        driver.switchTo().frame(frame);
     }
 
     /**
      * @param by locator
      */
     public void switchToFrame(final By by) {
-        try {
-            driver.switchTo().frame(getElement(by));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        driver.switchTo().frame(getElement(by));
     }
 
     /**
@@ -120,55 +108,35 @@ public class Navigate extends ElementBase {
      * @param index element order
      */
     public void switchToFrame(final By by, final int index) {
-        try {
-            driver.switchTo().frame(getAllElements(by).get(index));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        driver.switchTo().frame(getAllElements(by).get(index));
     }
 
     /**
      * Switch to parent frame
      */
     public void switchToParentFrame() {
-        try {
-            driver.switchTo().parentFrame();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        driver.switchTo().parentFrame();
     }
 
     /**
      * Switch to parent Window
      */
     public void switchToParentWindow() {
-        try {
-            driver.switchTo().defaultContent();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        driver.switchTo().defaultContent();
     }
 
     /**
      * @param handle window id
      */
     public void switchToWindow(final int handle) {
-        try {
-            driver.switchTo().window(getWindowHandle().get(handle));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        driver.switchTo().window(getWindowHandle().get(handle));
     }
 
     /**
      * @param windowName window name
      */
     public void switchToWindow(final String windowName) {
-        try {
-            driver.switchTo().window(windowName);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        driver.switchTo().window(windowName);
     }
 
     // TODO Implement better logic for switch / close window since the logic bellow is not good
