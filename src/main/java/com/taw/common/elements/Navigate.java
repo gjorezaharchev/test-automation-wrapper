@@ -159,6 +159,6 @@ public class Navigate extends ElementBase {
      * @return list of all active windows
      */
     private ArrayList<String> getWindowHandle() {
-        return new ArrayList<String>(driver.getWindowHandles());
+        return new ArrayList<>(driver.getWindowHandles());
     }
 }
