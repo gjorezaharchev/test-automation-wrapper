@@ -7,34 +7,34 @@
 
     <name>test-automation-wrapper</name>
     <description>full-stack wrapper framework</description>
-    <url>http://maven.apache.org</url>
+    <url>https://github.com/gjorezaharchev/test-automation-wrapper</url>
 
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
+    <!-- <licenses>
+         <license>
+             <name>Apache License, Version 2.0</name>
+             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+             <distribution>repo</distribution>
+         </license>
+     </licenses>
+ -->
     <scm>
-        <url>https://</url>
+        <url>https://github.com/gjorezaharchev/test-automation-wrapper.git</url>
     </scm>
 
-    <distributionManagement>
-        <!-- use the following if you're not using a snapshot version. -->
+    <!--<distributionManagement>
+        &lt;!&ndash; use the following if you're not using a snapshot version. &ndash;&gt;
         <repository>
             <id>localSnap</id>
             <name>RepositoryProxyRel</name>
             <url>https://maven.pkg.github.com/gjorezaharchev</url>
         </repository>
-        <!-- use the following if you ARE using a snapshot version. -->
+        &lt;!&ndash; use the following if you ARE using a snapshot version. &ndash;&gt;
         <snapshotRepository>
             <id>MylocalSnap</id>
             <name>RepositoryProxySnap</name>
             <url>https://maven.pkg.github.com/gjorezaharchev</url>
         </snapshotRepository>
-    </distributionManagement>
+    </distributionManagement>-->
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
