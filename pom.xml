@@ -20,7 +20,13 @@
     <scm>
         <url>https://github.com/gjorezaharchev/test-automation-wrapper.git</url>
     </scm>
-
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Gjore Zaharchev Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/gjorezaharchev/taw</url>
+        </repository>
+    </distributionManagement>
     <!--<distributionManagement>
         &lt;!&ndash; use the following if you're not using a snapshot version. &ndash;&gt;
         <repository>
