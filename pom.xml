@@ -24,7 +24,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Gjore Zaharchev Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/gjorezaharchev/taw</url>
+            <url>https://maven.pkg.github.com/gjorezaharchev/test-automation-wrapper</url>
         </repository>
     </distributionManagement>
     <!--<distributionManagement>
