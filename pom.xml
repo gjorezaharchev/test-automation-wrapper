@@ -26,13 +26,13 @@
         <repository>
             <id>localSnap</id>
             <name>RepositoryProxyRel</name>
-            <url>http:///releases/</url>
+            <url>https://maven.pkg.github.com/gjorezaharchev</url>
         </repository>
         <!-- use the following if you ARE using a snapshot version. -->
         <snapshotRepository>
             <id>MylocalSnap</id>
             <name>RepositoryProxySnap</name>
-            <url>http:///repositories/snapshots/</url>
+            <url>https://maven.pkg.github.com/gjorezaharchev</url>
         </snapshotRepository>
     </distributionManagement>
 
