@@ -12,7 +12,7 @@ public class Global {
 
     protected static WebDriver driver = null;
     protected static WebDriverWait waitElement = null;
-    protected final Drivers browser = Drivers.valueOf(System.getProperty("browser").toUpperCase());
+    protected Drivers browser = Drivers.valueOf(System.getProperty("browser").toUpperCase());
     protected final String environment = System.getProperty("environment");
     protected final String OS = System.getProperty("os.name").toLowerCase();
     protected final String drivers = "src/test/resources/Drivers/";
@@ -25,6 +25,9 @@ public class Global {
      * @return environment variable value
      */
     protected String $(final String envVarName) {
-        return Utils.getValueFromPropertyFile("/Environments/", environment, envVarName);
+        if (environment != null) {
+            return Utils.getValueFromPropertyFile("/Environments/", environment, envVarName);
+        }
+        return null;
     }
 }

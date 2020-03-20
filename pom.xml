@@ -39,8 +39,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium.version>3.141.59</selenium.version>
-        <hamcrest.version>2.1</hamcrest.version>
-        <rest-assured.version>2.9.0</rest-assured.version>
         <sqlunit.version>0.4.1</sqlunit.version>
         <poi.version>3.17</poi.version>
         <appium.version>7.3.0</appium.version>
@@ -62,21 +60,6 @@
             <scope>test</scope>
         </dependency>
 
-
-        <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest -->
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest</artifactId>
-            <version>${hamcrest.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.jayway.restassured</groupId>
-            <artifactId>rest-assured</artifactId>
-            <version>${rest-assured.version}</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>br.com.objectos.way</groupId>
             <artifactId>sqlunit</artifactId>

@@ -1,8 +1,10 @@
 package com.taw.common.elements;
 
 import com.taw.common.drivers.SetUp;
+import com.taw.common.utility.Constants;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * @author Gjore.Zaharchev
@@ -22,7 +24,7 @@ public class Browser extends ElementBase {
      */
     public void open() {
         setUp.setBrowser();
-        setUp.setExplicitWait();
+        setExplicitWait();
     }
 
     /**
@@ -80,8 +82,16 @@ public class Browser extends ElementBase {
      */
 
     public void close() {
-        setUp.driverQuit();
+        driver.quit();
     }
 
+    private void setExplicitWait() {
+
+        try {
+            waitElement = new WebDriverWait(driver, Constants.ELEMENT_LOAD_TIMEOUTS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

@@ -6,7 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 /**
+ *
  * @author gjore.zaharchev
+ *
  */
 public class Chrome extends Global implements Drivers {
 

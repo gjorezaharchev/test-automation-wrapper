@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 
+/**
+ * @author gjore.zaharchev
+ */
 public class IE extends Global implements Drivers {
 
     public WebDriver browser() {

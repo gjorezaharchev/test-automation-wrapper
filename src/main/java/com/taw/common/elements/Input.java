@@ -1,6 +1,7 @@
 package com.taw.common.elements;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 /**
  * @author gjore.zaharchev
@@ -31,6 +32,25 @@ public class Input extends ElementBase {
      * @param value to be used
      */
     public void type(final By by, final int index, final String value) {
+        if (value != null) {
+            getAllElements(by).get(index).sendKeys(value);
+        }
+    }
+
+    /**
+     * @param by    locator
+     * @param value to be used
+     */
+    public void type(final By by, final Keys value) {
+        getElement(by).sendKeys(value);
+    }
+
+    /**
+     * @param by    locator
+     * @param index element order
+     * @param value to be used
+     */
+    public void type(final By by, final int index, final Keys value) {
         if (value != null) {
             getAllElements(by).get(index).sendKeys(value);
         }
