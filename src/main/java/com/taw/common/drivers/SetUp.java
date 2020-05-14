@@ -34,6 +34,9 @@ public class SetUp extends Global {
             case ANDROID:
                 new Android().android();
                 break;
+            case IOS:
+                new IOS().iosDriver();
+                break;
             default:
                 //new Chrome().browser();
                 break;

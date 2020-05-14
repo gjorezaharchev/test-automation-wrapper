@@ -4,6 +4,8 @@ import com.taw.common.drivers.enums.Drivers;
 import com.taw.common.utility.Utils;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.IOSElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,6 +16,7 @@ public class Global {
 
     protected static WebDriver driver = null;
     protected static AndroidDriver<MobileElement> androidDriver = null;
+    protected static IOSDriver<IOSElement> iosDriver = null;
     protected static WebDriverWait waitElement = null;
 
     protected Drivers browser = Drivers.valueOf(System.getProperty("browser").toUpperCase());
