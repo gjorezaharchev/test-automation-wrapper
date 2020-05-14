@@ -2,9 +2,9 @@ package com.taw.tests;
 
 import com.taw.common.elements.Elements;
 import com.taw.objects.Home;
-import org.openqa.selenium.Keys;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 class TestMe extends Elements {
@@ -15,20 +15,28 @@ class TestMe extends Elements {
     @BeforeMethod
     public void set_up() {
         browser.open();
-        browser.maximize();
-        //browser.resize(500,500);
+        //browser.maximize();
+        browser.resize(500, 500);
         //browser.move(50,50);
         //browser.minimize();
         //browser.fullScreen();
-        navigate.to($("URL"));
+        //navigate.to($("URL"));
     }
 
-    @Test
-    public void some_test() {
+    @DataProvider(name = "testprv")
+    public Object[][] testprv() {
+        return dataSources.excel("src/test/resources/data/data.xlsx", "Sheet1", 1, 3);
+    }
 
+    @Test(dataProvider = "testprv")
+    public void some_test(String a, String b, String c) {
+        System.out.println("-------------------------" + a + b.substring(0, b.length() - 2) + c);
+        //System.out.println("-------------------------" + a[1][0] + a[1][1] + a[1][2]);
+
+        //System.out.println("-------------------" + Arrays.deepToString(dataSources.excel("src/test/resources/data/data.xlsx", "Sheet1", 1, 1)));
         //homepage
-        input.type(home.searchText, $("TERM") + Keys.ENTER.toString());
-        System.out.println(environment);
+        //input.type(home.searchText, $("TERM") + Keys.ENTER.toString());
+        // System.out.println(environment);
         wait.sleep(5000);
 
 

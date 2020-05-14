@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.taw</groupId>
     <artifactId>test-automation-wrapper</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
 
     <name>test-automation-wrapper</name>
     <description>full-stack wrapper framework</description>
@@ -29,6 +29,8 @@
     </distributionManagement>
 
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium.version>3.141.59</selenium.version>
         <sqlunit.version>0.4.1</sqlunit.version>
@@ -77,6 +79,13 @@
             <version>${appium.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>7.3.0</version>
+        </dependency>
+
 
     </dependencies>
 
@@ -91,6 +100,15 @@
         </resources>
 
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>

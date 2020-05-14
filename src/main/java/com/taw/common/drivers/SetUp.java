@@ -31,6 +31,9 @@ public class SetUp extends Global {
             case EDGE:
                 new Edge().browser();
                 break;
+            case ANDROID:
+                new Android().android();
+                break;
             default:
                 //new Chrome().browser();
                 break;
