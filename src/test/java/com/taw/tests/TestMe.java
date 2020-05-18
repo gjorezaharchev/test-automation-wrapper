@@ -20,7 +20,7 @@ class TestMe extends Elements {
         //browser.move(50,50);
         //browser.minimize();
         //browser.fullScreen();
-        //navigate.to($("URL"));
+        navigate.to($("URL"));
     }
 
     @DataProvider(name = "testprv")

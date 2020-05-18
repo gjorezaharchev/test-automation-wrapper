@@ -6,6 +6,8 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
+import io.appium.java_client.windows.WindowsDriver;
+import io.appium.java_client.windows.WindowsElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,6 +19,7 @@ public class Global {
     protected static WebDriver driver = null;
     protected static AndroidDriver<MobileElement> androidDriver = null;
     protected static IOSDriver<IOSElement> iosDriver = null;
+    protected static WindowsDriver<WindowsElement> winDriver = null;
     protected static WebDriverWait waitElement = null;
 
     protected Drivers browser = Drivers.valueOf(System.getProperty("browser").toUpperCase());
@@ -25,6 +28,10 @@ public class Global {
     protected final String drivers = "src/test/resources/Drivers/";
     protected final String app = System.getProperty("app");
     protected final String device = System.getProperty("device");
+
+    //Android
+    protected final String appPackage = System.getProperty("appPackage");
+    protected final String appActivity = System.getProperty("appActivity");
 
     /**
      * Used for reading environment variable value by specifying environment

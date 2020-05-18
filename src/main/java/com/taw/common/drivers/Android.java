@@ -20,7 +20,17 @@ public class Android extends Global {
     public DesiredCapabilities desiredCapabilities() {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, device);
-        desiredCapabilities.setCapability(MobileCapabilityType.APP, app);
+        desiredCapabilities.setCapability("appPackage", appPackage);
+
+        if (System.getProperty("app") != null) {
+            desiredCapabilities.setCapability(MobileCapabilityType.APP, app);
+        } else if (System.getProperty("appActivity") != null) {
+            desiredCapabilities.setCapability("appActivity", appActivity);
+        } else {
+            System.out.println("Please specify Android application location to be installed or existing android app and activity to be opened!");
+        }
+
+        desiredCapabilities.setCapability("autoGrantPermissions", "true");
         desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET, true);
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         return desiredCapabilities;
