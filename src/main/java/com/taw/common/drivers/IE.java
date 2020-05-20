@@ -32,6 +32,8 @@ public class IE extends Global implements Drivers {
         internetExplorerOptions.setCapability("ignoreProtectedModeSettings", true);
         internetExplorerOptions.setCapability("ie.ensureCleanSession", true);
         internetExplorerOptions.setCapability("acceptSslCerts", true);
+        internetExplorerOptions.setCapability("unhandledPromptBehavior", "accept");
+
         //internetExplorerOptions.setCapability("acceptSslCerts", true);
         //internetExplorerOptions.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
         //internetExplorerOptions.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);

@@ -21,6 +21,9 @@ public class Elements extends ElementBase {
     protected final Database database = new Database();
     protected final Files files = new Files();
     protected final DataSources dataSources = new DataSources();
+    protected final OTP otp = new OTP();
+    protected final Mailinator mailinator = new Mailinator();
+    protected final Gmail gmail = new Gmail();
 
 
 }

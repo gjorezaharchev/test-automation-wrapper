@@ -5,6 +5,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 /**
  * @author gjore.zaharchev
@@ -126,15 +130,29 @@ public class DataSources {
         return resultsIntoList;
     }
 
-   /* public String[][] csv(final String file) {
-
-        return null;
+    private List<String> getRecordFromLine(String line, String delimiter) {
+        List<String> values = new ArrayList<String>();
+        try (Scanner rowScanner = new Scanner(line)) {
+            rowScanner.useDelimiter(delimiter);
+            while (rowScanner.hasNext()) {
+                values.add(rowScanner.next());
+            }
+        }
+        return values;
     }
 
-    public String[][] json(final String file) {
+    public List csv(String filename, String delimiter) {
+        List<List<String>> records = new ArrayList<>();
+        try (Scanner scanner = new Scanner(new File(filename));) {
+            while (scanner.hasNextLine()) {
+                records.add(getRecordFromLine(scanner.nextLine(), delimiter));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return records;
+    }
 
-        return null;
-    }*/
 
 
 }

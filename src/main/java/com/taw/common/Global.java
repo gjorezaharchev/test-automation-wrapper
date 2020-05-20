@@ -46,4 +46,15 @@ public class Global {
         }
         return null;
     }
+
+    /**
+     * @param globalProperty
+     * @return System property value
+     */
+    protected String $$(final String globalProperty) {
+        if (System.getProperty(globalProperty) != null) {
+            return System.getProperty(globalProperty);
+        }
+        return null;
+    }
 }

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.taw</groupId>
     <artifactId>test-automation-wrapper</artifactId>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
 
     <name>test-automation-wrapper</name>
     <description>full-stack wrapper framework</description>
@@ -37,8 +37,9 @@
         <selenium.version>3.141.59</selenium.version>
         <sqlunit.version>0.4.1</sqlunit.version>
         <poi.version>3.17</poi.version>
-        <appium.version>7.3.0</appium.version>
         <testng.version>7.1.0</testng.version>
+        <appium.version>7.3.0</appium.version>
+        <googleauth.version>1.4.0</googleauth.version>
     </properties>
 
     <dependencies>
@@ -85,7 +86,13 @@
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>7.3.0</version>
+            <version>${appium.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.warrenstrange</groupId>
+            <artifactId>googleauth</artifactId>
+            <version>${googleauth.version}</version>
         </dependency>
 
 
