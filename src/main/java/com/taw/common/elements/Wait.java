@@ -167,11 +167,31 @@ public class Wait extends ElementBase {
      * @param by    locator
      * @param index element order
      */
-    public void toBecomeInvisible(final By by, final int index) {
+    public boolean toBecomeInvisible(final By by, final int index) {
         getElement(by);
         waitElement.until(ExpectedConditions.invisibilityOfAllElements(getAllElements(by)));
+        return true;
     }
 
+    public boolean toBeClicable(final By by) {
+        waitElement.until(ExpectedConditions.elementToBeClickable(by));
+        return true;
+    }
+
+    public boolean toBeClicable(final By by, final int timeout) {
+        new WebDriverWait(driver, timeout).until(ExpectedConditions.elementToBeClickable(by));
+        return true;
+    }
+
+    public boolean toBeSelectable(final By by) {
+        waitElement.until(ExpectedConditions.elementToBeSelected(by));
+        return true;
+    }
+
+    public boolean toBeSelectable(final By by, final int timeout) {
+        new WebDriverWait(driver, timeout).until(ExpectedConditions.elementToBeSelected(by));
+        return true;
+    }
     /**
      * @param by   locator
      * @param text text to be

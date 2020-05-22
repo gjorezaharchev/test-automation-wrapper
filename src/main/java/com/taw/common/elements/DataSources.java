@@ -3,12 +3,10 @@ package com.taw.common.elements;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * @author gjore.zaharchev
@@ -130,29 +128,34 @@ public class DataSources {
         return resultsIntoList;
     }
 
-    private List<String> getRecordFromLine(String line, String delimiter) {
-        List<String> values = new ArrayList<String>();
-        try (Scanner rowScanner = new Scanner(line)) {
-            rowScanner.useDelimiter(delimiter);
-            while (rowScanner.hasNext()) {
-                values.add(rowScanner.next());
-            }
-        }
-        return values;
-    }
+    public Iterator<Object[]> csv(final String fileName, final String delimiter) {
+        BufferedReader input = null;
+        File file = new File(fileName);
+        ArrayList<Object[]> data = null;
 
-    public List csv(String filename, String delimiter) {
-        List<List<String>> records = new ArrayList<>();
-        try (Scanner scanner = new Scanner(new File(filename));) {
-            while (scanner.hasNextLine()) {
-                records.add(getRecordFromLine(scanner.nextLine(), delimiter));
+        try {
+            input = new BufferedReader(new FileReader(file));
+
+            String line = null;
+            data = new ArrayList<Object[]>();
+            while ((line = input.readLine()) != null) {
+                String in = line.trim();
+                String[] temp = in.split(delimiter);
+                List<Object> arrray = new ArrayList<Object>();
+                for (String s : temp) {
+                    arrray.add(s);
+                }
+                data.add(arrray.toArray());
             }
+
+            input.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return records;
+        return data.iterator();
     }
-
 
 
 }

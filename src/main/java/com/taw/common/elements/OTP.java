@@ -13,17 +13,19 @@ public class OTP {
         return code;
     }
 
-    public int getOTPTime() {
+    public int getOTPRemainingTime() {
 
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         int sec = calendar.get(Calendar.SECOND);
-
-        if (sec >= 30) {
+        if (sec > 30) {
             sec = 60 - sec;
+        } else if (sec == 0) {
+            sec = 0;
         } else {
             sec = 30 - sec;
         }
+
         return sec;
     }
 }

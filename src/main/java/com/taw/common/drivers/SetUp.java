@@ -40,8 +40,11 @@ public class SetUp extends Global {
             case WINDOWS:
                 new Windows().windowsDriver();
                 break;
+            case MAC:
+                new MAC().macDriver();
+                break;
             default:
-                //new Chrome().browser();
+                //System.err.println("You are using an unsupported platform/browser!!!");
                 break;
         }
     }

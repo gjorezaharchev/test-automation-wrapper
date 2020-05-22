@@ -19,6 +19,7 @@ public class AppTest extends Elements {
     @BeforeSuite
     public void setupAppium() throws MalformedURLException {
         browser.open();
+        navigate.to("google.com");
     }
 
     @AfterSuite

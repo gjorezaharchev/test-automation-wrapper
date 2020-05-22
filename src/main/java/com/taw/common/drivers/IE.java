@@ -1,6 +1,7 @@
 package com.taw.common.drivers;
 
 import com.taw.common.Global;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
@@ -33,6 +34,8 @@ public class IE extends Global implements Drivers {
         internetExplorerOptions.setCapability("ie.ensureCleanSession", true);
         internetExplorerOptions.setCapability("acceptSslCerts", true);
         internetExplorerOptions.setCapability("unhandledPromptBehavior", "accept");
+
+        internetExplorerOptions.setPageLoadStrategy(PageLoadStrategy.NONE);
 
         //internetExplorerOptions.setCapability("acceptSslCerts", true);
         //internetExplorerOptions.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);

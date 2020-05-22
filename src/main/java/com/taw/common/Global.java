@@ -2,6 +2,7 @@ package com.taw.common;
 
 import com.taw.common.drivers.enums.Drivers;
 import com.taw.common.utility.Utils;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
@@ -20,40 +21,39 @@ public class Global {
     protected static AndroidDriver<MobileElement> androidDriver = null;
     protected static IOSDriver<IOSElement> iosDriver = null;
     protected static WindowsDriver<WindowsElement> winDriver = null;
+    protected static AppiumDriver appiumDriver = null;
     protected static WebDriverWait waitElement = null;
-
-    protected Drivers browser = Drivers.valueOf(System.getProperty("browser").toUpperCase());
-    protected final String environment = System.getProperty("environment");
-    protected final String OS = System.getProperty("os.name").toLowerCase();
+    protected final String environment = $$("environment");
+    protected final String OS = $$("os.name").toLowerCase();
+    protected final String app = $$("app");
     protected final String drivers = "src/test/resources/Drivers/";
-    protected final String app = System.getProperty("app");
-    protected final String device = System.getProperty("device");
-
+    protected final String device = $$("device");
     //Android
-    protected final String appPackage = System.getProperty("appPackage");
-    protected final String appActivity = System.getProperty("appActivity");
+    protected final String appPackage = $$("appPackage");
+    protected final String appActivity = $$("appActivity");
+    protected Drivers browser = Drivers.valueOf($$("browser").toUpperCase());
 
     /**
      * Used for reading environment variable value by specifying environment
      * variable name
      *
-     * @param envVarName specify which key from the properties file to be read
+     * @param environmentVariableName specify which key from the properties file to be read
      * @return environment variable value
      */
-    protected String $(final String envVarName) {
+    protected String $(final String environmentVariableName) {
         if (environment != null) {
-            return Utils.getValueFromPropertyFile("/Environments/", environment, envVarName);
+            return Utils.getValueFromPropertyFile("/Environments/", environment, environmentVariableName);
         }
         return null;
     }
 
     /**
-     * @param globalProperty
+     * @param systemProperty
      * @return System property value
      */
-    protected String $$(final String globalProperty) {
-        if (System.getProperty(globalProperty) != null) {
-            return System.getProperty(globalProperty);
+    protected String $$(final String systemProperty) {
+        if (System.getProperty(systemProperty) != null) {
+            return System.getProperty(systemProperty);
         }
         return null;
     }
