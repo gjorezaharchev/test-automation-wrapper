@@ -167,18 +167,18 @@ public class Wait extends ElementBase {
      * @param by    locator
      * @param index element order
      */
-    public boolean toBecomeInvisible(final By by, final int index) {
+    public boolean toBecomeInvisible(final By by, final int index, final long timeout) {
         getElement(by);
         waitElement.until(ExpectedConditions.invisibilityOfAllElements(getAllElements(by)));
         return true;
     }
 
-    public boolean toBeClicable(final By by) {
+    public boolean toBeClickable(final By by) {
         waitElement.until(ExpectedConditions.elementToBeClickable(by));
         return true;
     }
 
-    public boolean toBeClicable(final By by, final int timeout) {
+    public boolean toBeClickable(final By by, final long timeout) {
         new WebDriverWait(driver, timeout).until(ExpectedConditions.elementToBeClickable(by));
         return true;
     }
@@ -188,7 +188,7 @@ public class Wait extends ElementBase {
         return true;
     }
 
-    public boolean toBeSelectable(final By by, final int timeout) {
+    public boolean toBeSelectable(final By by, final long timeout) {
         new WebDriverWait(driver, timeout).until(ExpectedConditions.elementToBeSelected(by));
         return true;
     }
@@ -211,7 +211,7 @@ public class Wait extends ElementBase {
     /**
      * @param timeout timeout
      */
-    public void forAsynchronousRequest(int timeout) {
+    public void forAsynchronousRequest(final long timeout) {
         driver.manage().timeouts().setScriptTimeout(timeout, TimeUnit.MILLISECONDS);
     }
 

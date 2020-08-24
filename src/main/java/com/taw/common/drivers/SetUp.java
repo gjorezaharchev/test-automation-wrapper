@@ -19,14 +19,8 @@ public class SetUp extends Global {
             case FIREFOX:
                 new Firefox().browser();
                 break;
-            case OPERA:
-                new Opera().browser();
-                break;
             case SAFARI:
                 new Safari().browser();
-                break;
-            case PHANTOMJS:
-                new PhantomJS().browser();
                 break;
             case EDGE:
                 new Edge().browser();

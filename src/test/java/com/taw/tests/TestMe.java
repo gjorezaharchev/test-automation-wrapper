@@ -2,6 +2,7 @@ package com.taw.tests;
 
 import com.taw.common.elements.Elements;
 import com.taw.objects.Home;
+import com.taw.objects.Web;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -9,6 +10,7 @@ import org.testng.annotations.Test;
 class TestMe extends Elements {
 
     private final Home home = new Home();
+    public final Web web = new Web();
 
 
     @BeforeMethod
@@ -20,6 +22,7 @@ class TestMe extends Elements {
         //browser.minimize();
         //browser.fullScreen();
         navigate.to($("URL"));
+
     }
 
     /*@DataProvider(name = "testprv")

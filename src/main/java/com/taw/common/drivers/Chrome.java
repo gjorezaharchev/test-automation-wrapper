@@ -1,6 +1,7 @@
 package com.taw.common.drivers;
 
 import com.taw.common.Global;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -32,6 +33,8 @@ public class Chrome extends Global implements Drivers {
         chromeOptions.addArguments("--disable-extensions");
         chromeOptions.addArguments("--enable-application-cache");
         chromeOptions.addArguments("--allow-running-insecure-content");
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         return chromeOptions;
     }
 
