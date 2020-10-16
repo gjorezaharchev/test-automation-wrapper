@@ -24,6 +24,7 @@ public class Global {
     protected static AppiumDriver appiumDriver = null;
     protected static WebDriverWait waitElement = null;
     protected final String environment = $$("environment");
+    protected final long pageLoadTimeout = Long.valueOf($$("PAGE_LOAD_TIMEOUT"));
     protected final String OS = $$("os.name").toLowerCase();
     protected final String app = $$("app");
     protected final String drivers = "src/test/resources/Drivers/";

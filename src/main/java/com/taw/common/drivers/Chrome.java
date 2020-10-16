@@ -23,7 +23,7 @@ public class Chrome extends Global implements Drivers {
         } else {
             System.out.println("Your OS is not support!!");
         }
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options());
 
         return driver;
     }
@@ -34,6 +34,9 @@ public class Chrome extends Global implements Drivers {
         chromeOptions.addArguments("--enable-application-cache");
         chromeOptions.addArguments("--allow-running-insecure-content");
         chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--enable-automation");
+        chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--disable-gpu");
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         return chromeOptions;
     }

@@ -78,7 +78,7 @@ public class Wait extends ElementBase {
      */
     public boolean visibilityOfElement(final By by) {
         try {
-            waitElement.until(ExpectedConditions.invisibilityOfElementLocated(by));
+            waitElement.until(ExpectedConditions.visibilityOfElementLocated(by));
             return true;
         } catch (NoSuchElementException e) {
             e.printStackTrace();
@@ -95,7 +95,7 @@ public class Wait extends ElementBase {
      */
     public boolean visibilityOfElement(final By by, final long timeout) {
         try {
-            new WebDriverWait(driver, timeout).until(ExpectedConditions.invisibilityOfElementLocated(by));
+            new WebDriverWait(driver, timeout).until(ExpectedConditions.visibilityOfElementLocated(by));
             return true;
         } catch (NoSuchElementException e) {
             e.printStackTrace();

@@ -6,6 +6,8 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author Gjore.Zaharchev
  */
@@ -24,6 +26,7 @@ public class Browser extends ElementBase {
      */
     public void open() {
         setUp.setBrowser();
+        driver.manage().timeouts().pageLoadTimeout(pageLoadTimeout, TimeUnit.SECONDS);
         setExplicitWait();
     }
 
