@@ -12,6 +12,8 @@ import io.appium.java_client.windows.WindowsElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+
 /**
  * @author Gjore.Zaharchev
  */
@@ -23,7 +25,7 @@ public class Global {
     protected static WindowsDriver<WindowsElement> winDriver = null;
     protected static AppiumDriver appiumDriver = null;
     protected static WebDriverWait waitElement = null;
-    protected final String environment =$$("environment", "TEST");
+    protected final String environment =$$("environment", getFiles());
 
     protected final String OS = $$("os.name").toLowerCase();
     protected final String app = $$("app");
@@ -61,5 +63,12 @@ public class Global {
 
     protected String $$(final String systemProperty, final String defVal) {
             return System.getProperty(systemProperty, defVal);
+    }
+
+    private String getFiles() {
+        File folder = new File("src/test/resources/environments");
+        File[] listOfFiles = folder.listFiles();
+        String defaultEnvironment = listOfFiles[0].getName().replace(".properties", "");
+        return defaultEnvironment;
     }
 }
