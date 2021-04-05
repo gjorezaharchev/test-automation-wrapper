@@ -17,17 +17,18 @@ public class TestCon extends Elements {
 
     @BeforeMethod
     public void setup() {
+        browser.open();
         navigate.to($("URL"));
         browser.maximize();
     }
 
     @Test
     private void seetest() {
-        input.type(username, "gjore");
+       /* input.type(username, "gjore");
         input.type(password, "MyP@$$w0rd");
         button.click(loginBtn);
         assertThat(extract.elementValue(loginMsg)).isEqualTo("Login Successfull!");
-    }
+*/    }
 
     @AfterMethod
     public void tear_down() {

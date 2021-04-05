@@ -23,8 +23,8 @@ public class Global {
     protected static WindowsDriver<WindowsElement> winDriver = null;
     protected static AppiumDriver appiumDriver = null;
     protected static WebDriverWait waitElement = null;
-    protected final String environment = $$("environment");
-    protected final long pageLoadTimeout = Long.valueOf($$("PAGE_LOAD_TIMEOUT"));
+    protected final String environment =$$("environment", "TEST");
+
     protected final String OS = $$("os.name").toLowerCase();
     protected final String app = $$("app");
     protected final String drivers = "src/test/resources/Drivers/";
@@ -32,7 +32,7 @@ public class Global {
     //Android
     protected final String appPackage = $$("appPackage");
     protected final String appActivity = $$("appActivity");
-    protected Drivers browser = Drivers.valueOf($$("browser").toUpperCase());
+    protected Drivers browser = Drivers.valueOf($$("browser", "chrome").toUpperCase());
 
     /**
      * Used for reading environment variable value by specifying environment
@@ -57,5 +57,9 @@ public class Global {
             return System.getProperty(systemProperty);
         }
         return null;
+    }
+
+    protected String $$(final String systemProperty, final String defVal) {
+            return System.getProperty(systemProperty, defVal);
     }
 }

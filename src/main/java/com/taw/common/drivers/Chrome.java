@@ -1,10 +1,12 @@
 package com.taw.common.drivers;
 
 import com.taw.common.Global;
+import com.taw.common.utility.Constants;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 /**
  *
@@ -28,6 +30,10 @@ public class Chrome extends Global implements Drivers {
         return driver;
     }
 
+    public RemoteWebDriver remoteBrowser(){
+        return null;
+    }
+
     private ChromeOptions options() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--disable-extensions");
@@ -35,7 +41,11 @@ public class Chrome extends Global implements Drivers {
         chromeOptions.addArguments("--allow-running-insecure-content");
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--enable-automation");
-        chromeOptions.addArguments("--headless");
+        String headless = System.getProperty("headless","false");
+        if (headless.equalsIgnoreCase("true") || Constants.getGlobalProperty("headless").equalsIgnoreCase("true")) {
+            chromeOptions.addArguments("--headless");
+        }
+
         chromeOptions.addArguments("--disable-gpu");
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         return chromeOptions;

@@ -1,8 +1,13 @@
 package com.taw.common.elements;
 
+import com.taw.common.utility.$;
+
 /**
  * @author gjore.zaharchev
+ * @deprecated
+ * This class is no longer supported use Actions class instead
  */
+@Deprecated
 public class Elements extends ElementBase {
 
     protected final Browser browser = new Browser();
@@ -25,5 +30,6 @@ public class Elements extends ElementBase {
     protected final Mailinator mailinator = new Mailinator();
     protected final Gmail gmail = new Gmail();
 
+    protected final com.taw.common.utility.$ $ = new $();
 
 }

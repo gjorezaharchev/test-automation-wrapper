@@ -1,25 +1,17 @@
 package com.taw.tests;
 
-public class UnitTest {
+import com.taw.common.elements.Elements;
+import org.testng.annotations.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-/*    @Test
-    public void test() {
-       *//* for (int i = 0; i < 60; i++) {
-            System.out.println(otp.getOTP($("secret.key")));
-            wait.sleep(1000);
-            System.out.println(otp.getOTPRemainingTime());
+public class UnitTest extends Elements {
 
-        }*//*
-        Solution s = new Solution();
-        s.solution(1);
-    }*/
-}
-
-/*class Solution {
-    public void solution(int N) {
-        while (N > 0) {
-            System.out.print(N % 10);
-            N = N / 10;
-        }
+    @Test
+    public void test1() {
+        String[] a = {"S", "M", "L"};
+        System.out.println($.get_index_of(a, "S"));
+        System.out.println("Test");
+        System.out.println(String.valueOf($.random_full_name()));
+        assertThat($.random_full_name()).isEqualTo("Gjore Zaharchev");
     }
-}*/
+}

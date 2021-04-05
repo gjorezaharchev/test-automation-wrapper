@@ -1,6 +1,7 @@
 package com.taw.common.elements;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -47,5 +48,25 @@ public class DropDown extends ElementBase {
         select = new Select(getAllElements(by).get(index));
         select.selectByVisibleText(visibleText);
 
+    }
+
+    public void newSelect(final By by, final String option){
+        getElement(by).sendKeys(option);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        getElement(by).sendKeys(Keys.ENTER);
+    }
+
+    public void newSelect(final By by, final int index, final String option){
+        getAllElements(by).get(index).sendKeys(option);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        getElement(by).sendKeys(Keys.ENTER);
     }
 }
