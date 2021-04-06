@@ -24,4 +24,5 @@ public class Actions extends ElementBase{
     protected final Gmail gmail = new Gmail();
 
     protected final com.taw.common.utility.$ $ = new $();
+    protected final DatePicker datePicker = new DatePicker();
 }

@@ -22,7 +22,7 @@ public class Utils {
         try {
             stream = Utils.class.getResourceAsStream(String.format("%s%s.properties", path, fileName));
             properties.load(stream);
-            return properties.getProperty(propertyName);
+            return properties.getProperty(propertyName, "");
         } catch (final IOException e) {
             return null;
         } finally {

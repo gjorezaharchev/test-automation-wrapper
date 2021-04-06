@@ -3,6 +3,7 @@ package com.taw.common.utility;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 public class $ {
 
@@ -27,4 +28,12 @@ public class $ {
         Random r = new Random();
         return r.nextInt(18);
     }
+
+    public String uuid(){
+        UUID uuid = UUID.randomUUID();
+        String uuidAsString = uuid.toString();
+        return uuidAsString;
+    }
+
+
 }

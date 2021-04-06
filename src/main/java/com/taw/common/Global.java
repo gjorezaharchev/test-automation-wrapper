@@ -66,7 +66,7 @@ public class Global {
     }
 
     private String getFiles() {
-        File folder = new File("src/test/resources/environments");
+        File folder = new File("src/test/resources/Environments");
         File[] listOfFiles = folder.listFiles();
         String defaultEnvironment = listOfFiles[0].getName().replace(".properties", "");
         return defaultEnvironment;

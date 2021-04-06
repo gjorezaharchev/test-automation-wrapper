@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.util.Locale;
+
 /**
  *
  * @author gjore.zaharchev
@@ -42,7 +44,8 @@ public class Chrome extends Global implements Drivers {
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--enable-automation");
         String headless = System.getProperty("headless","false");
-        if (headless.equalsIgnoreCase("true") || Constants.getGlobalProperty("headless").equalsIgnoreCase("true")) {
+        String headlessGlobals = Constants.getGlobalProperty("headless");
+        if (headless.equalsIgnoreCase("true") || headlessGlobals.equalsIgnoreCase("true")) {
             chromeOptions.addArguments("--headless");
         }
 
