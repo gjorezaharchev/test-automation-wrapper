@@ -3,12 +3,16 @@ package com.taw.common.drivers;
 import com.taw.common.Global;
 import com.taw.common.utility.Constants;
 import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.util.Locale;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 
 /**
  *
@@ -27,13 +31,27 @@ public class Chrome extends Global implements Drivers {
         } else {
             System.out.println("Your OS is not support!!");
         }
-        driver = new ChromeDriver(options());
+
+        if (System.getProperty("remote","false").equalsIgnoreCase("true")){
+            /*ChromeOptions chromeOptions = new ChromeOptions();
+            //chromeOptions.setCapability("browserName", "chrome");
+            //chromeOptions.setCapability("version", "89.0");
+            //chromeOptions.setCapability("platform", "Windows");
+            String headless = System.getProperty("headless","false");
+            String headlessGlobals = Constants.getGlobalProperty("headless");
+            if (headless.equalsIgnoreCase("true") || headlessGlobals.equalsIgnoreCase("true")) {
+                chromeOptions.addArguments("--headless");
+            }*/
+            try {
+                driver = new RemoteWebDriver(new URL(nodeURL),options());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }else {
+            driver = new ChromeDriver(options());
+        }
 
         return driver;
-    }
-
-    public RemoteWebDriver remoteBrowser(){
-        return null;
     }
 
     private ChromeOptions options() {

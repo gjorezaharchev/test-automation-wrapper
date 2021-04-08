@@ -26,6 +26,7 @@ public class Global {
     protected static AppiumDriver appiumDriver = null;
     protected static WebDriverWait waitElement = null;
     protected final String environment =$$("environment", getFiles());
+    protected final String nodeURL = $$("node");
 
     protected final String OS = $$("os.name").toLowerCase();
     protected final String app = $$("app");

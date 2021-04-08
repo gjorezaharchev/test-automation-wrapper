@@ -1,9 +1,15 @@
 package com.taw.common.drivers;
 
 import com.taw.common.Global;
+import com.taw.common.utility.Constants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * @author gjore.zaharchev
@@ -23,8 +29,32 @@ public class Firefox extends Global implements Drivers {
         } else {
             System.out.println("Your OS is not support!!");
         }
-        driver = new FirefoxDriver();
+        if (System.getProperty("remote", "false").equalsIgnoreCase("true")) {
+            /*FirefoxOptions firefoxOptions = new FirefoxOptions();
+            String headless = System.getProperty("headless","false");
+            String headlessGlobals = Constants.getGlobalProperty("headless");
+            if (headless.equalsIgnoreCase("true") || headlessGlobals.equalsIgnoreCase("true")) {
+                firefoxOptions.addArguments("--headless");
+            }*/
+            try {
+                driver = new RemoteWebDriver(new URL(nodeURL), firefoxOptions());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            driver = new FirefoxDriver(firefoxOptions());
+        }
         return driver;
+    }
+
+    private FirefoxOptions firefoxOptions() {
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        String headless = System.getProperty("headless", "false");
+        String headlessGlobals = Constants.getGlobalProperty("headless");
+        if (headless.equalsIgnoreCase("true") || headlessGlobals.equalsIgnoreCase("true")) {
+            firefoxOptions.addArguments("--headless");
+        }
+        return firefoxOptions;
     }
 
     @SuppressWarnings("unused")

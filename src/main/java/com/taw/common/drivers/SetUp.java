@@ -2,6 +2,8 @@ package com.taw.common.drivers;
 
 import com.taw.common.Global;
 
+import java.net.MalformedURLException;
+
 /**
  * @author Gjore.Zaharchev
  */

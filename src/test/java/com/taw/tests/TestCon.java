@@ -18,12 +18,15 @@ public class TestCon extends Elements {
     @BeforeMethod
     public void setup() {
         browser.open();
-        navigate.to($("URL"));
         browser.maximize();
+        navigate.to($("URL"));
+
     }
 
     @Test
     private void seetest() {
+        System.out.println("TEST");
+        wait.sleep(3000);
        /* input.type(username, "gjore");
         input.type(password, "MyP@$$w0rd");
         button.click(loginBtn);
