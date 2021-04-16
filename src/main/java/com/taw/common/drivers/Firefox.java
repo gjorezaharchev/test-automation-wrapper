@@ -50,7 +50,7 @@ public class Firefox extends Global implements Drivers {
     private FirefoxOptions firefoxOptions() {
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         String headless = System.getProperty("headless", "false");
-        String headlessGlobals = Constants.getGlobalProperty("headless");
+        String headlessGlobals = Constants.$string("headless");
         if (headless.equalsIgnoreCase("true") || headlessGlobals.equalsIgnoreCase("true")) {
             firefoxOptions.addArguments("--headless");
         }

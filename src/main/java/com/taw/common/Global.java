@@ -25,17 +25,17 @@ public class Global {
     protected static WindowsDriver<WindowsElement> winDriver = null;
     protected static AppiumDriver appiumDriver = null;
     protected static WebDriverWait waitElement = null;
-    protected final String environment =$$("environment", getFiles());
-    protected final String nodeURL = $$("node");
+    protected final String environment = $sys("environment", getFiles());
+    protected final String nodeURL = $sys("node");
 
-    protected final String OS = $$("os.name").toLowerCase();
-    protected final String app = $$("app");
+    protected final String OS = $sys("os.name").toLowerCase();
+    protected final String app = $sys("app");
     protected final String drivers = "src/test/resources/Drivers/";
-    protected final String device = $$("device");
+    protected final String device = $sys("device");
     //Android
-    protected final String appPackage = $$("appPackage");
-    protected final String appActivity = $$("appActivity");
-    protected Drivers browser = Drivers.valueOf($$("browser", "chrome").toUpperCase());
+    protected final String appPackage = $sys("appPackage");
+    protected final String appActivity = $sys("appActivity");
+    protected Drivers browser = Drivers.valueOf($sys("browser", "chrome").toUpperCase());
 
     /**
      * Used for reading environment variable value by specifying environment
@@ -55,14 +55,14 @@ public class Global {
      * @param systemProperty
      * @return System property value
      */
-    protected String $$(final String systemProperty) {
+    protected String $sys(final String systemProperty) {
         if (System.getProperty(systemProperty) != null) {
             return System.getProperty(systemProperty);
         }
         return null;
     }
 
-    protected String $$(final String systemProperty, final String defVal) {
+    protected String $sys(final String systemProperty, final String defVal) {
             return System.getProperty(systemProperty, defVal);
     }
 
@@ -71,5 +71,21 @@ public class Global {
         File[] listOfFiles = folder.listFiles();
         String defaultEnvironment = listOfFiles[0].getName().replace(".properties", "");
         return defaultEnvironment;
+    }
+
+    protected static String $string(final String globalPropertyName) {
+        return Utils.getValueFromPropertyFile("/GlobalProperties/", "global", globalPropertyName);
+    }
+
+    protected static int $int(final String globalPropertyName) {
+        return Integer.parseInt(Utils.getValueFromPropertyFile("/GlobalProperties/", "global", globalPropertyName));
+    }
+
+    protected static boolean $boolean(final String globalPropertyName) {
+        return Boolean.parseBoolean(Utils.getValueFromPropertyFile("/GlobalProperties/", "global", globalPropertyName));
+    }
+
+    protected static Double $double(final String globalPropertyName) {
+        return Double.parseDouble(Utils.getValueFromPropertyFile("/GlobalProperties/", "global", globalPropertyName));
     }
 }

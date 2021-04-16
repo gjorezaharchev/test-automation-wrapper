@@ -3,6 +3,7 @@ package com.taw.common.drivers;
 import com.taw.common.Global;
 import com.taw.common.utility.Constants;
 import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -11,6 +12,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -59,7 +61,7 @@ public class Chrome extends Global implements Drivers {
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--enable-automation");
         String headless = System.getProperty("headless", "false");
-        String headlessGlobals = Constants.getGlobalProperty("headless");
+        String headlessGlobals = Constants.$string("headless");
         if (headless.equalsIgnoreCase("true") || headlessGlobals.equalsIgnoreCase("true")) {
             chromeOptions.addArguments("--headless");
         }
@@ -68,22 +70,29 @@ public class Chrome extends Global implements Drivers {
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 
         if (System.getProperty("project", "").equalsIgnoreCase("sidel")) {
-            String pathToDownload = System.getProperty("user.home") + Constants.getGlobalProperty("download.location");
+            String pathToDownload = System.getProperty("user.home") + Constants.$string("download.location");
             HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-            chromePrefs.put("plugins.always_open_pdf_externally", Boolean.valueOf(Constants.getGlobalProperty("plugins.always_open_pdf_externally")));
-            chromePrefs.put("download.prompt_for_download", Boolean.valueOf(Constants.getGlobalProperty("download.prompt_for_download")));
-            chromePrefs.put("profile.default_content_settings.popups", Constants.getGlobalProperty("profile.default_content_settings.popups"));
+            chromePrefs.put("plugins.always_open_pdf_externally", Constants.$boolean("plugins.always_open_pdf_externally"));
+            chromePrefs.put("download.prompt_for_download", Constants.$boolean("download.prompt_for_download"));
+            chromePrefs.put("profile.default_content_settings.popups", Constants.$int("profile.default_content_settings.popups"));
             chromePrefs.put("download.default_directory", pathToDownload);
             chromePrefs.put("browser.set_download_behavior", "{ behavior: 'allow', downloadPath: '" + pathToDownload + "'}");
             chromeOptions.setExperimentalOption("prefs", chromePrefs);
 
-            chromeOptions.setCapability("browserName", Constants.getGlobalProperty("browserName"));
-            chromeOptions.setCapability("version", Constants.getGlobalProperty("version"));
-            chromeOptions.setCapability("platform", Constants.getGlobalProperty("platform"));
-            chromeOptions.setCapability("enableVNC", Boolean.valueOf(Constants.getGlobalProperty("enableVNC")));
-            chromeOptions.setCapability("enableVideo", Boolean.valueOf(Constants.getGlobalProperty("enableVNC")));
+            chromeOptions.setCapability("browserName", Constants.$string("browserName"));
+            chromeOptions.setCapability("version", Constants.$string("version"));
+            chromeOptions.setCapability("platform", Constants.$string("platform"));
+            chromeOptions.setCapability("enableVNC", Constants.$boolean("enableVNC"));
+            chromeOptions.setCapability("enableVideo", Constants.$boolean("enableVideo"));
             //chromeOptions.setCapability("screenResolution", "1920x1080x24");
 
+            if($sys("selenoid").equalsIgnoreCase("true")){
+                Map<String, Object> selenoidOptions = new HashMap<>();
+                selenoidOptions.put("enableVNC", Constants.$boolean("enableVNC"));
+                selenoidOptions.put("enableVideo", Constants.$boolean("enableVideo"));
+                chromeOptions.setCapability("selenoid:options", selenoidOptions);
+
+            }
         }
 
         return chromeOptions;

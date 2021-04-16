@@ -17,7 +17,7 @@ public class MAC extends Global {
 
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Mac");
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Mac");
-        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, $$("platformVersion"));
+        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, $sys("platformVersion"));
         desiredCapabilities.setCapability(MobileCapabilityType.APP, app);
 
         return desiredCapabilities;

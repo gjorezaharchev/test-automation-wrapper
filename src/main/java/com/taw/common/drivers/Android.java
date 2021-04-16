@@ -22,12 +22,12 @@ public class Android extends Global {
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, device);
         desiredCapabilities.setCapability("appPackage", appPackage);
 
-        if ($$("app") != null) {
+        if ($sys("app") != null) {
             desiredCapabilities.setCapability(MobileCapabilityType.APP, app);
         } else if (System.getProperty("appActivity") != null) {
             desiredCapabilities.setCapability("appActivity", appActivity);
-        } else if ($$("browserName") != null) {
-            desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, $$("browserName"));
+        } else if ($sys("browserName") != null) {
+            desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME, $sys("browserName"));
         } else {
             System.out.println("Please specify Android application location to be installed or existing android app and activity to be opened!");
         }

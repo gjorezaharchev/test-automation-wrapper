@@ -1,6 +1,7 @@
 package com.taw.tests;
 
 import com.taw.common.elements.Elements;
+import com.taw.common.utility.Utils;
 import org.openqa.selenium.By;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -26,6 +27,7 @@ public class TestCon extends Elements {
     @Test
     private void seetest() {
         System.out.println("TEST");
+        Utils.setValueFromPropertyFile("src/test/resources/Environments/", "TEST", "some.key", "some value");
         wait.sleep(3000);
        /* input.type(username, "gjore");
         input.type(password, "MyP@$$w0rd");
