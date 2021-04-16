@@ -86,7 +86,7 @@ public class Chrome extends Global implements Drivers {
             chromeOptions.setCapability("enableVideo", Constants.$boolean("enableVideo"));
             //chromeOptions.setCapability("screenResolution", "1920x1080x24");
 
-            if($sys("selenoid").equalsIgnoreCase("true")){
+            if($sys("selenoid", "false").equalsIgnoreCase("true")){
                 Map<String, Object> selenoidOptions = new HashMap<>();
                 selenoidOptions.put("enableVNC", Constants.$boolean("enableVNC"));
                 selenoidOptions.put("enableVideo", Constants.$boolean("enableVideo"));
