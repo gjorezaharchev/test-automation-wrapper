@@ -33,8 +33,8 @@ public class Global {
     protected final String drivers = "src/test/resources/Drivers/";
     protected final String device = $sys("device");
     //Android
-    protected final String appPackage = $sys("appPackage");
-    protected final String appActivity = $sys("appActivity");
+    protected final static String appPackage = $sys("appPackage");
+    protected final static String appActivity = $sys("appActivity");
     protected Drivers browser = Drivers.valueOf($sys("browser", "chrome").toUpperCase());
 
     /**
@@ -55,7 +55,7 @@ public class Global {
      * @param systemProperty
      * @return System property value
      */
-    protected String $sys(final String systemProperty) {
+    protected static String $sys(final String systemProperty) {
         if (System.getProperty(systemProperty) != null) {
             return System.getProperty(systemProperty);
         }

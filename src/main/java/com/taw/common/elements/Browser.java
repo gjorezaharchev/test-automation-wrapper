@@ -26,8 +26,11 @@ public class Browser extends ElementBase {
      */
     public void open() {
         setUp.setBrowser();
-        driver.manage().timeouts().pageLoadTimeout(Constants.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
         setExplicitWait();
+    }
+
+    public void page_load_timeout(){
+        driver.manage().timeouts().pageLoadTimeout(Constants.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
     }
 
     /**
