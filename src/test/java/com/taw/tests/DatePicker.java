@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import java.util.Calendar;
@@ -13,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DatePicker {
 
+    @Ignore
     @Test
     public void testDAtePicker() throws Exception {
 

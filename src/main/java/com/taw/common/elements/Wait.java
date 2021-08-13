@@ -1,5 +1,6 @@
 package com.taw.common.elements;
 
+import com.taw.common.utility.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -224,5 +225,13 @@ public class Wait extends ElementBase {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public void page_load_timeout(){
+        driver.manage().timeouts().implicitlyWait(Constants.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+    }
+
+    public void page_load_timeout(final long timeout){
+        driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
     }
 }

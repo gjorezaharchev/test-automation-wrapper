@@ -1,11 +1,13 @@
 package com.taw.tests;
 
 import com.taw.common.elements.Elements;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class UnitTest extends Elements {
 
+    @Ignore
     @Test
     public void test1() {
         String[] a = {"S", "M", "L"};

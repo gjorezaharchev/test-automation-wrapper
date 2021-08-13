@@ -1,18 +1,22 @@
 package com.taw.tests;
 
+import com.taw.common.elements.Actions;
 import com.taw.common.elements.Elements;
+import com.taw.objects.Home;
+import com.taw.objects.Web;
+import org.testng.annotations.*;
 
-class TestMe extends Elements {
+public class TestMe extends Actions {
 
-    /*private final Home home = new Home();
+    private final Home home = new Home();
     public final Web web = new Web();
 
 
     @BeforeMethod
     public void set_up() {
         browser.open();
-        //browser.maximize();
-        browser.resize(500, 500);
+        browser.maximize();
+        //browser.resize(500, 500);
         //browser.move(50,50);
         //browser.minimize();
         //browser.fullScreen();
@@ -20,12 +24,13 @@ class TestMe extends Elements {
 
     }
 
-    *//*@DataProvider(name = "testprv")
+    @DataProvider(name = "testprv")
     public Object[][] testprv() {
         return dataSources.excel("src/test/resources/data/data.xlsx", "Sheet1", 1, 3);
-    }*//*
+    }
 
-    //@Test(dataProvider = "testprv")
+    @Ignore
+    @Test(dataProvider = "testprv")
     public void some_test(String a, String b, String c) {
         System.out.println("-------------------------" + a + b.substring(0, b.length() - 2) + c);
         //System.out.println("-------------------------" + a[1][0] + a[1][1] + a[1][2]);
@@ -39,6 +44,7 @@ class TestMe extends Elements {
 
     }
 
+    @Ignore
     @Test
     public void testx() {
         System.out.println("sadasdsdas");
@@ -51,7 +57,7 @@ class TestMe extends Elements {
     }
 
 
-    *//*public static void main(String[] args) throws Exception {
+    /*public static void main(String[] args) throws Exception {
         System.out.println(Arrays.deepToString(excel("C:\\Users\\gjore.zaharchev\\Desktop\\a.xlsx", "Sheet1", 2, 4)));
         //excel("C:\\Users\\gjore.zaharchev\\Desktop\\a.xlsx", "Sheet1");
     }*/

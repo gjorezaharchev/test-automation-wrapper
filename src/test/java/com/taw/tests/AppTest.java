@@ -2,16 +2,8 @@ package com.taw.tests;
 
 import com.google.common.collect.ImmutableMap;
 import com.taw.common.elements.Actions;
-import com.taw.common.elements.Elements;
 import com.taw.objects.MobileApp;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import org.openqa.selenium.Keys;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
-
+import org.testng.annotations.*;
 import java.net.MalformedURLException;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -25,7 +17,7 @@ public class AppTest extends Actions {
     adb shell
     dumpsys window | grep -E 'mCurrentFocus'
      */
-/*
+
     @BeforeSuite
     public void setupAppium() throws MalformedURLException {
         browser.open();
@@ -43,6 +35,7 @@ public class AppTest extends Actions {
         androidDriver.resetApp();
     }
 
+    @Ignore
     @Test(enabled = true)
     public void myFirstTest() throws InterruptedException {
         String searchTerm = "Gjore Zaharchev";
@@ -51,5 +44,5 @@ public class AppTest extends Actions {
         androidDriver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "search"));
         assertThat(extract.elementValue(MobileApp.searchQuery)).isEqualTo(searchTerm);
         wait.sleep(10000);
-    }*/
+    }
 }
