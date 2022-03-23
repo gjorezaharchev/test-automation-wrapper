@@ -1,10 +1,15 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.github.gjorezaharchev</groupId>
+        <artifactId>taw-parent</artifactId>
+        <version>0.0.1</version>
+    </parent>
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.taw</groupId>
     <artifactId>test-automation-wrapper</artifactId>
-    <version>0.0.19</version>
-    <packaging>pom</packaging>
+    <version>0.0.20</version>
 
     <name>test-automation-wrapper</name>
     <description>full-stack wrapper framework</description>
@@ -32,7 +37,7 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler>3.8.1</maven.compiler>
+        <!--<maven.compiler>3.8.1</maven.compiler>
         <maven.surefire>3.0.0-M4</maven.surefire>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium.version>4.1.2</selenium.version>
@@ -40,11 +45,16 @@
         <poi.version>3.17</poi.version>
         <testng.version>7.5</testng.version>
         <appium.version>7.6.0</appium.version>
-        <googleauth.version>1.4.0</googleauth.version>
+        <googleauth.version>1.4.0</googleauth.version>-->
     </properties>
-
-    <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+    <!--<dependencies>
+        &lt;!&ndash; https://mvnrepository.com/artifact/org.assertj/assertj-core &ndash;&gt;
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
@@ -58,7 +68,7 @@
             <version>${selenium.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        &lt;!&ndash; https://mvnrepository.com/artifact/org.testng/testng &ndash;&gt;
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -84,7 +94,7 @@
             <version>${poi.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+        &lt;!&ndash; https://mvnrepository.com/artifact/io.appium/java-client &ndash;&gt;
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
@@ -125,12 +135,12 @@
                 <version>${maven.surefire}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <!--suppress UnresolvedMavenProperty -->
+                        &lt;!&ndash;suppress UnresolvedMavenProperty &ndash;&gt;
                         <suiteXmlFile>${suiteXmlFiles}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
-            <!--<plugin>
+            &lt;!&ndash;<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <executions>
@@ -153,9 +163,9 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>&ndash;&gt;
         </plugins>
-    </build>
+    </build>-->
 
 
 </project>
