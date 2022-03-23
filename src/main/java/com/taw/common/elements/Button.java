@@ -8,24 +8,26 @@ import org.openqa.selenium.interactions.Actions;
  */
 public class Button extends ElementBase {
 
-    /**
+    /*
      * Submits the form by any form element.
      *
      * @param by provide locator
      */
-    public void submit(final By by) {
-        getElement(by).submit();
-    }
+    /*
+     public void submit(final By by) {
+         getElement(by).submit();
+     }
+    */
 
-    /**
+    /*
      * Submits the form by any form element using index.
      *
      * @param by    provide locator
      * @param index provide order number
      */
-    public void submit(final By by, final int index) {
+    /* public void submit(final By by, final int index) {
         getAllElements(by).get(index).submit();
-    }
+    }*/
 
     /**
      * Click on particular button or link.

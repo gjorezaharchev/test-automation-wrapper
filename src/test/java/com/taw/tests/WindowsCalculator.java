@@ -31,11 +31,13 @@ public class WindowsCalculator extends Actions {
         driver.quit();
     }
 
-    @Ignore
+    //@Ignore
     @Test
     void notepad(){
         button.click(By.name("File"));
         button.click(By.name("Open..."));
+        input.type(By.name("File name:"), "FileName.txt");
+        wait.sleep(3000);
         button.click(By.name("Cancel"));
     }
 

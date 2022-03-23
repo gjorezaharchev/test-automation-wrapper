@@ -5,8 +5,7 @@ import com.taw.common.utility.$;
 public class Actions extends ElementBase{
     protected final Browser browser = new Browser();
     protected final Navigate navigate = new Navigate();
-    protected final Button button = new Button();
-    protected final Button link = new Button();
+    protected final Button button = new Button(), link = new Button();
     protected final DropDown dropdown = new DropDown();
     protected final Input input = new Input();
     protected final Alerts alert = new Alerts();

@@ -3,7 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.taw</groupId>
     <artifactId>test-automation-wrapper</artifactId>
-    <version>0.0.18</version>
+    <version>0.0.19</version>
+    <packaging>pom</packaging>
 
     <name>test-automation-wrapper</name>
     <description>full-stack wrapper framework</description>
@@ -34,11 +35,11 @@
         <maven.compiler>3.8.1</maven.compiler>
         <maven.surefire>3.0.0-M4</maven.surefire>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <selenium.version>3.141.59</selenium.version>
+        <selenium.version>4.1.2</selenium.version>
         <sqlunit.version>0.4.1</sqlunit.version>
         <poi.version>3.17</poi.version>
-        <testng.version>7.1.0</testng.version>
-        <appium.version>7.3.0</appium.version>
+        <testng.version>7.5</testng.version>
+        <appium.version>7.6.0</appium.version>
         <googleauth.version>1.4.0</googleauth.version>
     </properties>
 
@@ -53,7 +54,7 @@
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-server</artifactId>
+            <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
 

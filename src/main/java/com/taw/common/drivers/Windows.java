@@ -27,7 +27,7 @@ public class Windows extends Global {
         return desiredCapabilities;
     }
 
-    public WindowsDriver<WindowsElement> windowsDriver() {
+    public WindowsDriver windowsDriver() {
 
         try {
             url = new URL(Constants.APPIUM_SERVER);

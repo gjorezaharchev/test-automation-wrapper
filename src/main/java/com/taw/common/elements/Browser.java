@@ -6,6 +6,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -94,7 +95,7 @@ public class Browser extends ElementBase {
     private void setExplicitWait() {
 
         try {
-            waitElement = new WebDriverWait(driver, Constants.ELEMENT_LOAD_TIMEOUTS);
+            waitElement = new WebDriverWait(driver, Duration.ofSeconds(Constants.ELEMENT_LOAD_TIMEOUTS));
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -22,7 +22,7 @@ public class Global {
     protected static WebDriver driver = null;
     protected static AndroidDriver<MobileElement> androidDriver = null;
     protected static IOSDriver<IOSElement> iosDriver = null;
-    protected static WindowsDriver<WindowsElement> winDriver = null;
+    protected static WindowsDriver winDriver = null;
     protected static AppiumDriver appiumDriver = null;
     protected static WebDriverWait waitElement = null;
     protected final String environment = $sys("environment", getFiles());
