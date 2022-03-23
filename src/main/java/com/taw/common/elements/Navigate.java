@@ -1,6 +1,7 @@
 package com.taw.common.elements;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.ArrayList;
@@ -151,6 +152,11 @@ public class Navigate extends ElementBase {
     public void closeWindow(final String windowName) {
         driver.switchTo().window(windowName);
         driver.close();
+    }
+
+    public void scroll(final int h, final int v){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript(String.format("window.scrollBy(%s,%s)",h,v));
     }
 
     /**
