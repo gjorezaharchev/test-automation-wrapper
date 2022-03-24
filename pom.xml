@@ -3,13 +3,13 @@
     <parent>
         <groupId>com.github.gjorezaharchev</groupId>
         <artifactId>taw-parent</artifactId>
-        <version>0.0.2</version>
+        <version>0.0.6</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.taw</groupId>
     <artifactId>test-automation-wrapper</artifactId>
-    <version>0.0.22</version>
+    <version>0.0.23</version>
 
     <name>test-automation-wrapper</name>
     <description>full-stack wrapper framework</description>
@@ -37,15 +37,10 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <!--<maven.compiler>3.8.1</maven.compiler>
+        <maven.compiler>3.8.1</maven.compiler>
         <maven.surefire>3.0.0-M4</maven.surefire>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <selenium.version>4.1.2</selenium.version>
-        <sqlunit.version>0.4.1</sqlunit.version>
-        <poi.version>3.17</poi.version>
-        <testng.version>7.5</testng.version>
-        <appium.version>7.6.0</appium.version>
-        <googleauth.version>1.4.0</googleauth.version>-->
+
     </properties>
     <repositories>
         <repository>
@@ -53,62 +48,7 @@
             <url>https://jitpack.io</url>
         </repository>
     </repositories>
-    <!--<dependencies>
-        &lt;!&ndash; https://mvnrepository.com/artifact/org.assertj/assertj-core &ndash;&gt;
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>3.17.2</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>${selenium.version}</version>
-        </dependency>
-
-        &lt;!&ndash; https://mvnrepository.com/artifact/org.testng/testng &ndash;&gt;
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${testng.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>br.com.objectos.way</groupId>
-            <artifactId>sqlunit</artifactId>
-            <version>${sqlunit.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>${poi.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>${poi.version}</version>
-        </dependency>
-
-        &lt;!&ndash; https://mvnrepository.com/artifact/io.appium/java-client &ndash;&gt;
-        <dependency>
-            <groupId>io.appium</groupId>
-            <artifactId>java-client</artifactId>
-            <version>${appium.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.warrenstrange</groupId>
-            <artifactId>googleauth</artifactId>
-            <version>${googleauth.version}</version>
-        </dependency>
-
-    </dependencies>
-
+    <!--
     <build>
         <resources>
             <resource>
