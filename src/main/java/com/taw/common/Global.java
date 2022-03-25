@@ -35,7 +35,7 @@ public class Global {
     //Android
     protected final static String appPackage = $sys("appPackage");
     protected final static String appActivity = $sys("appActivity");
-    protected Drivers browser = Drivers.valueOf($sys("browser", "chrome").toUpperCase());
+    protected final static Drivers browser = Drivers.valueOf($sys("browser", "chrome").toUpperCase());
 
     /**
      * Used for reading environment variable value by specifying environment
@@ -62,7 +62,7 @@ public class Global {
         return null;
     }
 
-    protected String $sys(final String systemProperty, final String defVal) {
+    protected static String $sys(final String systemProperty, final String defVal) {
             return System.getProperty(systemProperty, defVal);
     }
 

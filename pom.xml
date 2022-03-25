@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.taw</groupId>
     <artifactId>test-automation-wrapper</artifactId>
-    <version>0.0.23</version>
+    <version>0.0.24</version>
 
     <name>test-automation-wrapper</name>
     <description>full-stack wrapper framework</description>
@@ -48,7 +48,7 @@
             <url>https://jitpack.io</url>
         </repository>
     </repositories>
-    <!--
+
     <build>
         <resources>
             <resource>
@@ -75,12 +75,12 @@
                 <version>${maven.surefire}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        &lt;!&ndash;suppress UnresolvedMavenProperty &ndash;&gt;
+                        <!--suppress UnresolvedMavenProperty -->
                         <suiteXmlFile>${suiteXmlFiles}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
-            &lt;!&ndash;<plugin>
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <executions>
@@ -103,9 +103,9 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>&ndash;&gt;
+            </plugin>-->
         </plugins>
-    </build>-->
+    </build>
 
 
 </project>
