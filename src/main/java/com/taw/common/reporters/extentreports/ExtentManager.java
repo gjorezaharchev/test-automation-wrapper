@@ -12,7 +12,7 @@ public class ExtentManager extends Global{
     private static ExtentReports extent;
     public static ExtentReports createInstance(){
         String fileName = getReportName();
-        String directory = System.getProperty("user.dir") + "/reports/";
+        String directory = System.getProperty("user.dir") + "/extent/reports/";
         new File(directory).mkdirs();
         String path = directory+fileName;
         ExtentSparkReporter htmlReporter = new ExtentSparkReporter(path);
@@ -22,8 +22,9 @@ public class ExtentManager extends Global{
         htmlReporter.config().setTheme(Theme.DARK);
 
         extent = new ExtentReports();
-        extent.setSystemInfo("Organization", "Seavus");
-        extent.setSystemInfo("Browser", "My browser");
+        extent.setSystemInfo("Organization", $string("ORGANIZATION"));
+        extent.setSystemInfo("Browser", String.valueOf(browser));
+        extent.setSystemInfo("OS", OS);
         extent.attachReporter(htmlReporter);
 
         return extent;
@@ -31,7 +32,7 @@ public class ExtentManager extends Global{
 
     public static String getReportName(){
         Date d = new Date();
-        String filename = "Automation_Report" + d.toString().replace(":", "_").replace(" ", "_" + ".html");
+        String filename = "Automation_Report" + d.toString().replace(":", "_").replace(" ", "_" )+ ".html";
         return filename;
     }
 }

@@ -38,14 +38,14 @@ public class TestListener extends Global implements ITestListener {
     public void onTestFailure(ITestResult result) {
         String methodName = result.getMethod().getMethodName();
 
-        String exceptionMessage = Arrays.toString(result.getThrowable().getStackTrace());
+        String exceptionMessage = result.getThrowable().getMessage();
         extentTest.get().fail("<details><summary><b><font color=red>"+
                 "Exception Occured, click to see details</font></b></summary>"+
                 exceptionMessage.replaceAll(",", "<br>") + "</details> \n");
         String path = takeScreenshot(driver, result.getMethod().getMethodName());
         System.out.println(path);
         try{
-            extentTest.get().fail("<b><font color=red>Screenshot of Failure</font></b>" +
+            extentTest.get().fail("<b><font color=red>Screenshot of Failure</font></b>",
                     MediaEntityBuilder.createScreenCaptureFromPath(path).build());
         }catch (Exception e){
             extentTest.get().fail("Test failed can not attach screenshot");
@@ -81,7 +81,7 @@ public class TestListener extends Global implements ITestListener {
 
     public String takeScreenshot(WebDriver driver, String methodName){
         String fileName = getScreenshotName(methodName);
-        String directory = System.getProperty("user.dir") + "/screenshots/";
+        String directory = System.getProperty("user.dir") + "/extent/screenshots/";
         new File(directory).mkdirs();
         String path = directory + fileName;
 

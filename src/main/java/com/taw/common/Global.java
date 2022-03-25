@@ -28,7 +28,7 @@ public class Global {
     protected final String environment = $sys("environment", getFiles());
     protected final String nodeURL = $sys("node");
 
-    protected final String OS = $sys("os.name").toLowerCase();
+    protected static final String OS = $sys("os.name").toLowerCase();
     protected final String app = $sys("app");
     protected final String drivers = "src/test/resources/Drivers/";
     protected final String device = $sys("device");
