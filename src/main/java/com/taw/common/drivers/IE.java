@@ -1,6 +1,7 @@
 package com.taw.common.drivers;
 
 import com.taw.common.Global;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -13,12 +14,13 @@ public class IE extends Global implements Drivers {
 
     public WebDriver browser() {
 
-        if (System.getProperty("os.arch").equals("x86")) {
+        /*if (System.getProperty("os.arch").equals("x86")) {
             System.setProperty("webdriver.ie.driver", drivers + "IEDriverServer32.exe");
         } else {
             System.setProperty("webdriver.ie.driver", System.getProperty(
                     "webdriver.ie.driver", drivers + "IEDriverServer64.exe"));
-        }
+        }*/
+        WebDriverManager.iedriver().setup();
         driver = new InternetExplorerDriver(ieo());
         driver.manage().deleteAllCookies();
         return null;

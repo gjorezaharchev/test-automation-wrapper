@@ -2,6 +2,7 @@ package com.taw.common.drivers;
 
 import com.taw.common.Global;
 import com.taw.common.utility.Constants;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +22,7 @@ import java.util.Map;
 public class Chrome extends Global implements Drivers {
 
     public WebDriver browser() {
-        if (OSValidator.isWindows(OS)) {
+       /* if (OSValidator.isWindows(OS)) {
             System.setProperty("webdriver.chrome.driver", drivers + "chromedriver.exe");
         } else if (OSValidator.isMac(OS)) {
             System.setProperty("webdriver.chrome.driver", drivers + "chromedriverMac");
@@ -29,8 +30,9 @@ public class Chrome extends Global implements Drivers {
             System.setProperty("webdriver.chrome.driver", drivers + "chromedriver64");
         } else {
             System.out.println("Your OS is not support!!");
-        }
+        }*/
 
+        WebDriverManager.chromedriver().setup();
         if (System.getProperty("remote", "false").equalsIgnoreCase("true")) {
             /*ChromeOptions chromeOptions = new ChromeOptions();
             //chromeOptions.setCapability("browserName", "chrome");

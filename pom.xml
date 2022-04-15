@@ -3,13 +3,13 @@
     <parent>
         <groupId>com.github.gjorezaharchev</groupId>
         <artifactId>taw-parent</artifactId>
-        <version>0.0.6</version>
+        <version>0.0.8</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.taw</groupId>
     <artifactId>test-automation-wrapper</artifactId>
-    <version>0.0.25</version>
+    <version>0.0.27</version>
 
     <name>test-automation-wrapper</name>
     <description>full-stack wrapper framework</description>
