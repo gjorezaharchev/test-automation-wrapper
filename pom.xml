@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.taw</groupId>
     <artifactId>test-automation-wrapper</artifactId>
-    <version>0.0.27</version>
+    <version>0.0.28</version>
 
     <name>test-automation-wrapper</name>
     <description>full-stack wrapper framework</description>
