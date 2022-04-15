@@ -4,7 +4,6 @@ import com.taw.common.Global;
 import com.taw.common.utility.Constants;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.windows.WindowsDriver;
-import io.appium.java_client.windows.WindowsElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
@@ -35,7 +34,7 @@ public class Windows extends Global {
             e.printStackTrace();
         }
 
-        winDriver = new WindowsDriver<WindowsElement> (url, desiredCapabilities());
+        winDriver = new WindowsDriver (url, desiredCapabilities());
         driver = winDriver;
         return winDriver;
     }

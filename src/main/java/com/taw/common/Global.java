@@ -3,12 +3,9 @@ package com.taw.common;
 import com.taw.common.drivers.enums.Drivers;
 import com.taw.common.utility.Utils;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.windows.WindowsDriver;
-import io.appium.java_client.windows.WindowsElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -20,8 +17,8 @@ import java.io.File;
 public class Global {
 
     protected static WebDriver driver = null;
-    protected static AndroidDriver<MobileElement> androidDriver = null;
-    protected static IOSDriver<IOSElement> iosDriver = null;
+    protected static AndroidDriver androidDriver = null;
+    protected static IOSDriver iosDriver = null;
     protected static WindowsDriver winDriver = null;
     protected static AppiumDriver appiumDriver = null;
     protected static WebDriverWait waitElement = null;

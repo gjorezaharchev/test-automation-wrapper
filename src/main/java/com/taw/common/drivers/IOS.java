@@ -2,7 +2,6 @@ package com.taw.common.drivers;
 
 import com.taw.common.Global;
 import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -33,8 +32,8 @@ public class IOS extends Global {
         return desiredCapabilities;
     }
 
-    public IOSDriver<IOSElement> iosDriver() {
-        iosDriver = new IOSDriver<IOSElement>(url, desiredCapabilities());
+    public IOSDriver iosDriver() {
+        iosDriver = new IOSDriver(url, desiredCapabilities());
         driver = iosDriver;
         return iosDriver;
     }

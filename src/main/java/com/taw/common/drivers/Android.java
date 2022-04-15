@@ -2,7 +2,6 @@ package com.taw.common.drivers;
 
 import com.taw.common.Global;
 import com.taw.common.utility.Constants;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -38,14 +37,14 @@ public class Android extends Global {
         return desiredCapabilities;
     }
 
-    public AndroidDriver<MobileElement> android() {
+    public AndroidDriver android() {
         try {
             url = new URL(Constants.APPIUM_SERVER);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
 
-        androidDriver = new AndroidDriver<MobileElement>(url, desiredCapabilities());
+        androidDriver = new AndroidDriver(url, desiredCapabilities());
         driver = androidDriver;
         return androidDriver;
     }
