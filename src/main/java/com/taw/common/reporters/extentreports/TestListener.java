@@ -42,7 +42,7 @@ public class TestListener extends Global implements ITestListener {
         extentTest.get().fail("<details><summary><b><font color=red>"+
                 "Exception Occured, click to see details</font></b></summary>"+
                 exceptionMessage.replaceAll(",", "<br>") + "</details> \n");
-        String path = takeScreenshot(driver, result.getMethod().getMethodName());
+        String path = takeScreenshot(driver, methodName);
         System.out.println(path);
         try{
             extentTest.get().fail("<b><font color=red>Screenshot of Failure</font></b>",
@@ -92,7 +92,7 @@ public class TestListener extends Global implements ITestListener {
             e.printStackTrace();
         }
 
-        return path;
+        return "../screenshots/" + fileName;
     }
 
     public static String getScreenshotName(String methodName){

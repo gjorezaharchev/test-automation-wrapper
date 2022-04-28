@@ -17,7 +17,7 @@ public class TestCon extends Elements {
     By loginBtn = By.id("loginBtn");
     By loginMsg = By.id("loginMsg");
 
-    @BeforeMethod
+    @BeforeMethod(onlyForGroups = "regression", alwaysRun = true)
     public void setup() {
         browser.open();
         browser.maximize();
@@ -26,10 +26,10 @@ public class TestCon extends Elements {
     }
 
     @Ignore
-    @Test
+    @Test(groups = "regression")
     private void seetest() {
-        System.out.println("TEST");
-        Utils.setValueFromPropertyFile("src/test/resources/Environments/", "TEST", "some.key", "some value");
+        //System.out.println("TEST");
+       // Utils.setValueFromPropertyFile("src/test/resources/Environments/", "TEST", "some.key", "some value");
         wait.sleep(3000);
         input.type(username, "gjore");
         input.type(password, "MyP@$$w0rd");
