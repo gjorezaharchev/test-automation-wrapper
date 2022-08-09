@@ -17,15 +17,21 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.Date;
 
 public class TestListener extends Global implements ITestListener {
 
     private static ExtentReports extent = ExtentManager.createInstance();
     private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
+
+    public static String getScreenshotName(String methodName) {
+        Date d = new Date();
+        String filename = methodName + "_" + d.toString().replace(":", "_").replace(" ", "_") + ".png";
+        return filename;
+    }
+
     public void onTestStart(ITestResult result) {
-        ExtentTest test = extent.createTest(result.getTestClass().getName() + " :: "+ result.getMethod().getMethodName());
+        ExtentTest test = extent.createTest(result.getTestClass().getName() + " :: " + result.getMethod().getMethodName());
         extentTest.set(test);
     }
 
@@ -39,18 +45,20 @@ public class TestListener extends Global implements ITestListener {
         String methodName = result.getMethod().getMethodName();
 
         String exceptionMessage = result.getThrowable().getMessage();
-        extentTest.get().fail("<details><summary><b><font color=red>"+
-                "Exception Occured, click to see details</font></b></summary>"+
+        extentTest.get().fail("<details><summary><b><font color=red>" +
+                "Exception Occured, click to see details</font></b></summary>" +
                 exceptionMessage.replaceAll(",", "<br>") + "</details> \n");
-        String path = takeScreenshot(driver, methodName);
-        System.out.println(path);
-        try{
-            extentTest.get().fail("<b><font color=red>Screenshot of Failure</font></b>",
-                    MediaEntityBuilder.createScreenCaptureFromPath(path).build());
-        }catch (Exception e){
-            extentTest.get().fail("Test failed can not attach screenshot");
+        String path;
+        if (driver != null) {
+            path = takeScreenshot(driver, methodName);
+            System.out.println(path);
+            try {
+                extentTest.get().fail("<b><font color=red>Screenshot of Failure</font></b>",
+                        MediaEntityBuilder.createScreenCaptureFromPath(path).build());
+            } catch (Exception e) {
+                extentTest.get().fail("Test failed can not attach screenshot");
+            }
         }
-
         String logText = "<b>Method Name " + methodName + " Failed </b>";
         Markup m = MarkupHelper.createLabel(logText, ExtentColor.RED);
         extentTest.get().log(Status.FAIL, m);
@@ -74,30 +82,24 @@ public class TestListener extends Global implements ITestListener {
     }
 
     public void onFinish(ITestContext context) {
-        if(extent!=null){
+        if (extent != null) {
             extent.flush();
         }
     }
 
-    public String takeScreenshot(WebDriver driver, String methodName){
+    public String takeScreenshot(WebDriver driver, String methodName) {
         String fileName = getScreenshotName(methodName);
         String directory = System.getProperty("user.dir") + "/extent/screenshots/";
         new File(directory).mkdirs();
         String path = directory + fileName;
 
-        try{
-            File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        try {
+            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             FileUtils.copyFile(screenshot, new File(path));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         return "../screenshots/" + fileName;
-    }
-
-    public static String getScreenshotName(String methodName){
-        Date d = new Date();
-        String filename = methodName + "_" + d.toString().replace(":", "_").replace(" ", "_" )+ ".png";
-        return filename;
     }
 }
