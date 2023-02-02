@@ -1,11 +1,11 @@
 package com.taw.tests;
 
-import com.taw.common.elements.Elements;
+import com.taw.common.elements.Actions;
 import org.testng.annotations.*;
 
 import java.util.Iterator;
 
-public class CSV extends Elements {
+public class CSV extends Actions {
 
     @DataProvider(name = "a")
     public Iterator<Object[]> aaa() {

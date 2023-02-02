@@ -31,7 +31,7 @@ public class Browser extends ElementBase {
     }
 
     public void page_load_timeout(){
-        driver.manage().timeouts().pageLoadTimeout(Constants.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(Constants.PAGE_LOAD_TIMEOUT);
     }
 
     /**

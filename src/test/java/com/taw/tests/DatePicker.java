@@ -28,7 +28,7 @@ public class DatePicker {
 
         driver.get("https://demos.telerik.com/kendo-ui/datetimepicker/index");
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         //button to open calendar
 

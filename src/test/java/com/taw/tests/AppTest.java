@@ -27,12 +27,12 @@ public class AppTest extends Actions {
     @AfterSuite
     public void uninstallApp() throws InterruptedException {
         //androidDriver.removeApp($("android.package"));
-        androidDriver.quit();
+        //androidDriver.quit();
     }
 
     @BeforeMethod
     public void start_app() {
-        androidDriver.resetApp();
+        //androidDriver.resetApp();
     }
 
     @Ignore
@@ -41,7 +41,7 @@ public class AppTest extends Actions {
         String searchTerm = "Gjore Zaharchev";
         button.click(MobileApp.search);
         input.type(MobileApp.searchText, searchTerm );
-        androidDriver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "search"));
+        //androidDriver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "search"));
         assertThat(extract.elementValue(MobileApp.searchQuery)).isEqualTo(searchTerm);
         wait.sleep(10000);
     }

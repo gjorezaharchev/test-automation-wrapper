@@ -1,11 +1,11 @@
 package com.taw.tests;
 
-import com.taw.common.elements.Elements;
+import com.taw.common.elements.Actions;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class UnitTest extends Elements {
+public class UnitTest extends Actions {
 
     @Ignore
     @Test

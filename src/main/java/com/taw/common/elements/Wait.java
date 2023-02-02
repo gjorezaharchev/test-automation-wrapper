@@ -6,6 +6,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -32,7 +33,7 @@ public class Wait extends ElementBase {
      * @param timeout timeout
      * @return element
      */
-    public boolean presenceOfElement(final By by, final long timeout) {
+    public boolean presenceOfElement(final By by, final Duration timeout) {
         try {
             new WebDriverWait(driver, timeout).until(ExpectedConditions.presenceOfElementLocated(by));
             return true;
@@ -61,7 +62,7 @@ public class Wait extends ElementBase {
      * @param timeout timeout
      * @return element
      */
-    public boolean presenceOfElements(final By by, final long timeout) {
+    public boolean presenceOfElements(final By by, final Duration timeout) {
         try {
             new WebDriverWait(driver, timeout).until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
             return true;
@@ -94,7 +95,7 @@ public class Wait extends ElementBase {
      * @param timeout timeout
      * @return element
      */
-    public boolean visibilityOfElement(final By by, final long timeout) {
+    public boolean visibilityOfElement(final By by, final Duration timeout) {
         try {
             new WebDriverWait(driver, timeout).until(ExpectedConditions.visibilityOfElementLocated(by));
             return true;
@@ -123,7 +124,7 @@ public class Wait extends ElementBase {
      * @param timeout timeout
      * @return element
      */
-    public boolean visibilityOfElements(final By by, final long timeout) {
+    public boolean visibilityOfElements(final By by, final Duration timeout) {
         try {
             new WebDriverWait(driver, timeout).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
             return true;
@@ -153,7 +154,7 @@ public class Wait extends ElementBase {
      * @param timeout timeout
      * @return element
      */
-    public boolean toBecomeInvisible(final By by, final long timeout) {
+    public boolean toBecomeInvisible(final By by, final Duration timeout) {
         try {
             getElement(by);
             new WebDriverWait(driver, timeout).until(ExpectedConditions.invisibilityOfElementLocated(by));
@@ -179,7 +180,7 @@ public class Wait extends ElementBase {
         return true;
     }
 
-    public boolean toBeClickable(final By by, final long timeout) {
+    public boolean toBeClickable(final By by, final Duration timeout) {
         new WebDriverWait(driver, timeout).until(ExpectedConditions.elementToBeClickable(by));
         return true;
     }
@@ -189,7 +190,7 @@ public class Wait extends ElementBase {
         return true;
     }
 
-    public boolean toBeSelectable(final By by, final long timeout) {
+    public boolean toBeSelectable(final By by, final Duration timeout) {
         new WebDriverWait(driver, timeout).until(ExpectedConditions.elementToBeSelected(by));
         return true;
     }
@@ -205,15 +206,15 @@ public class Wait extends ElementBase {
      * @param by   locator
      * @param text text
      */
-    public boolean textToBe(final By by, final long timeout, final String text) {
+    public boolean textToBe(final By by, final Duration timeout, final String text) {
         return new WebDriverWait(driver, timeout).until(ExpectedConditions.textToBe(by, text));
     }
 
     /**
      * @param timeout timeout
      */
-    public void forAsynchronousRequest(final long timeout) {
-        driver.manage().timeouts().setScriptTimeout(timeout, TimeUnit.MILLISECONDS);
+    public void forAsynchronousRequest(final Duration timeout) {
+        driver.manage().timeouts().scriptTimeout(timeout);
     }
 
     /**
@@ -228,10 +229,10 @@ public class Wait extends ElementBase {
     }
 
     public void page_load_timeout(){
-        driver.manage().timeouts().implicitlyWait(Constants.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Constants.PAGE_LOAD_TIMEOUT);
     }
 
-    public void page_load_timeout(final long timeout){
-        driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
+    public void page_load_timeout(final Duration timeout){
+        driver.manage().timeouts().implicitlyWait(timeout);
     }
 }

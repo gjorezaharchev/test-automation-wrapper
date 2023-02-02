@@ -1,7 +1,6 @@
 package com.taw.tests;
 
 import com.taw.common.elements.Actions;
-import com.taw.common.elements.Elements;
 import com.taw.objects.Home;
 import com.taw.objects.Web;
 import org.testng.annotations.*;
