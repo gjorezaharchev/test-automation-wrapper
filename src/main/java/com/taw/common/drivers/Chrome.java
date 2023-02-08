@@ -76,7 +76,7 @@ public class Chrome extends Global implements Drivers {
         if (headless.equalsIgnoreCase("true") || headlessGlobals.equalsIgnoreCase("true")) {
             chromeOptions.addArguments("--headless");
             //chromeOptions.setCapability("screenResolution", "1600x1200x32");
-            chromeOptions.addArguments("--screenshot");
+            //chromeOptions.addArguments("--screenshot");
             chromeOptions.addArguments("--disable-gpu");
         }
 
