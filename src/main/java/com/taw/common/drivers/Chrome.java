@@ -68,6 +68,7 @@ public class Chrome extends Global implements Drivers {
         chromeOptions.addArguments("--allow-running-insecure-content");
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--enable-automation");
+        chromeOptions.addArguments("--ignore-certificate-errors");
 
 
 
