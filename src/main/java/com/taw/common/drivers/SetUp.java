@@ -32,6 +32,9 @@ public class SetUp extends Global {
             case IOS:
                 new IOS().iosDriver();
                 break;
+            case HTMLUNIT:
+                new HTMLUnit().browser();
+                break;
             case WINDOWS:
                 new Windows().windowsDriver();
                 break;

@@ -31,6 +31,6 @@ public class MAC extends Global {
             e.printStackTrace();
         }
 
-        appiumDriver = new AppiumDriver(url, desiredCapabilities());
+        //appiumDriver = new AppiumDriver(url, desiredCapabilities());
     }
 }

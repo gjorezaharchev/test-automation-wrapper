@@ -11,7 +11,7 @@
         </groups>
 
         <classes>
-            <class name="com.taw.tests.ExpoQA"/>
+            <class name="com.taw.tests.TestCon"/>
         </classes>
 
     </test>

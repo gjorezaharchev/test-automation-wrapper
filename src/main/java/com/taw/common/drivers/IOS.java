@@ -33,7 +33,7 @@ public class IOS extends Global {
     }
 
     public IOSDriver iosDriver() {
-        iosDriver = new IOSDriver(url, desiredCapabilities());
+        //iosDriver = new IOSDriver(url, desiredCapabilities());
         driver = iosDriver;
         return iosDriver;
     }

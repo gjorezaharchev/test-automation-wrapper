@@ -8,6 +8,7 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.taw.common.Global;
+import com.taw.common.drivers.enums.Drivers;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -49,14 +50,16 @@ public class TestListener extends Global implements ITestListener {
                 "Exception Occured, click to see details</font></b></summary>" +
                 exceptionMessage.replaceAll(",", "<br>") + "</details> \n");
         String path;
-        if (driver != null) {
-            path = takeScreenshot(driver, methodName);
-            System.out.println(path);
-            try {
-                extentTest.get().fail("<b><font color=red>Screenshot of Failure</font></b>",
-                        MediaEntityBuilder.createScreenCaptureFromPath(path).build());
-            } catch (Exception e) {
-                extentTest.get().fail("Test failed can not attach screenshot");
+        if (driver != null ) {
+            if(!browser.equals(Drivers.HTMLUNIT)) {
+                path = takeScreenshot(driver, methodName);
+                System.out.println(path);
+                try {
+                    extentTest.get().fail("<b><font color=red>Screenshot of Failure</font></b>",
+                            MediaEntityBuilder.createScreenCaptureFromPath(path).build());
+                } catch (Exception e) {
+                    extentTest.get().fail("Test failed can not attach screenshot");
+                }
             }
         }
         String logText = "<b>Method Name " + methodName + " Failed </b>";

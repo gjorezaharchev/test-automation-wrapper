@@ -31,8 +31,13 @@ public class Chrome extends Global implements Drivers {
         } else {
             System.out.println("Your OS is not support!!");
         }*/
+        if (OSValidator.isUnix(OS)) {
+            System.setProperty("webdriver.chrome.driver", drivers + "chromedriver64");
+        } else {
+            WebDriverManager.chromedriver().setup();
+        }
 
-        WebDriverManager.chromedriver().setup();
+
         if (System.getProperty("remote", "false").equalsIgnoreCase("true")) {
             /*ChromeOptions chromeOptions = new ChromeOptions();
             //chromeOptions.setCapability("browserName", "chrome");

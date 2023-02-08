@@ -34,7 +34,7 @@ public class Windows extends Global {
             e.printStackTrace();
         }
 
-        winDriver = new WindowsDriver (url, desiredCapabilities());
+        //winDriver = new WindowsDriver (url, desiredCapabilities());
         driver = winDriver;
         return winDriver;
     }

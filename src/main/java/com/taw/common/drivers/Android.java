@@ -44,7 +44,7 @@ public class Android extends Global {
             e.printStackTrace();
         }
 
-        androidDriver = new AndroidDriver(url, desiredCapabilities());
+        //androidDriver = new AndroidDriver(url, desiredCapabilities());
         driver = androidDriver;
         return androidDriver;
     }

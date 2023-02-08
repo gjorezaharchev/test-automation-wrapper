@@ -93,9 +93,9 @@ public class Browser extends ElementBase {
     }
 
     private void setExplicitWait() {
-
+        int to =Constants.ELEMENT_LOAD_TIMEOUTS;
         try {
-            waitElement = new WebDriverWait(driver, Duration.ofSeconds(Constants.ELEMENT_LOAD_TIMEOUTS));
+            waitElement = new WebDriverWait(driver, Duration.ofSeconds(to));
         } catch (Exception e) {
             e.printStackTrace();
         }
