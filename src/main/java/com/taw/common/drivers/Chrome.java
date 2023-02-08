@@ -8,6 +8,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.v108.emulation.model.DisplayFeature;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -67,13 +68,18 @@ public class Chrome extends Global implements Drivers {
         chromeOptions.addArguments("--allow-running-insecure-content");
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--enable-automation");
+
+
+
         String headless = System.getProperty("headless", "false");
         String headlessGlobals = Constants.$string("headless");
         if (headless.equalsIgnoreCase("true") || headlessGlobals.equalsIgnoreCase("true")) {
             chromeOptions.addArguments("--headless");
+            chromeOptions.setCapability("screenResolution", "1600x1200x32");
+            chromeOptions.addArguments("--screenshot");
+            chromeOptions.addArguments("--disable-gpu");
         }
 
-        chromeOptions.addArguments("--disable-gpu");
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 
         if (System.getProperty("project", "").equalsIgnoreCase("sidel")) {

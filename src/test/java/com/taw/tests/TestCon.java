@@ -27,6 +27,9 @@ public class TestCon extends Actions {
 
     @Test(groups = "regression")
     private void seetest() {
+        browser.open();
+        browser.maximize();
+        navigate.to($("URL"));
         //System.out.println("TEST");
        // Utils.setValueFromPropertyFile("src/test/resources/Environments/", "TEST", "some.key", "some value");
         //wait.sleep(3000);
@@ -34,6 +37,8 @@ public class TestCon extends Actions {
         //input.type(password, "MyP@$$w0rd");
        // button.click(loginBtn);
        // assertThat(extract.elementValue(loginMsg)).isEqualTo("Login Successfull!");
+        System.out.println("-------------------------------------");
+       // System.out.println(driver.getWindowHandles());
         input.type(By.name("q"), "topka");
         wait.sleep(2000);
     }

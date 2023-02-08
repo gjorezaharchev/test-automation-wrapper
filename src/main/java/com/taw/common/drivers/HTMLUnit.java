@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 public class HTMLUnit extends Global implements Drivers{
     @Override
     public WebDriver browser()  {
-        driver = new HtmlUnitDriver(BrowserVersion.CHROME,true);
+        driver = new HtmlUnitDriver();
         return driver;
     }
 }
