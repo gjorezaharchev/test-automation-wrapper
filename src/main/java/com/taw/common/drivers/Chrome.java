@@ -79,6 +79,7 @@ public class Chrome extends Global implements Drivers {
             //chromeOptions.setCapability("screenResolution", "1600x1200x32");
             //chromeOptions.addArguments("--screenshot");
             chromeOptions.addArguments("--disable-gpu");
+            chromeOptions.addArguments("--window-size=1920,1080");
         }
 
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);

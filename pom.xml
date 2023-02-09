@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.taw</groupId>
     <artifactId>test-automation-wrapper</artifactId>
-    <version>0.0.36</version>
+    <version>0.0.37</version>
 
     <name>test-automation-wrapper</name>
     <description>full-stack wrapper framework</description>
@@ -49,6 +49,13 @@
         </repository>
     </repositories>
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20220924</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.projectlombok</groupId>

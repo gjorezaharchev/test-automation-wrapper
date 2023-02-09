@@ -1,5 +1,8 @@
 package com.taw.common.elements;
 
+import com.taw.common.emails.Gmail;
+import com.taw.common.emails.MailSlurp;
+import com.taw.common.emails.Mailinator;
 import com.taw.common.utility.$;
 
 public class Actions extends ElementBase{
@@ -21,6 +24,9 @@ public class Actions extends ElementBase{
     protected final OTP otp = new OTP();
     protected final Mailinator mailinator = new Mailinator();
     protected final Gmail gmail = new Gmail();
+    protected final MailSlurp mailSlurp = new MailSlurp();
+    protected final Cookies cookies = new Cookies();
+    protected final JSONUtils jsonUtils = new JSONUtils();
 
     protected final com.taw.common.utility.$ $ = new $();
     protected final DatePicker datePicker = new DatePicker();

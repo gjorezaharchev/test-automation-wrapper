@@ -1,5 +1,7 @@
 package com.taw.common.elements;
 
+import com.taw.common.emails.Gmail;
+import com.taw.common.emails.Mailinator;
 import com.taw.common.utility.$;
 
 /**

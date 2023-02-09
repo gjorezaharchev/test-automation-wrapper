@@ -39,7 +39,7 @@ public class TestCon extends Actions {
        // assertThat(extract.elementValue(loginMsg)).isEqualTo("Login Successfull!");
         System.out.println("-------------------------------------");
        // System.out.println(driver.getWindowHandles());
-        input.type(By.name("q"), "topka");
+        input.type(By.name("qa"), "topka");
         wait.sleep(2000);
     }
 
