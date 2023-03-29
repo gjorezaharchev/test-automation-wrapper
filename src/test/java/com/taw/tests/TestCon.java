@@ -41,6 +41,7 @@ public class TestCon extends Actions {
        // System.out.println(driver.getWindowHandles());
         input.type(By.name("qa"), "topka");
         wait.sleep(2000);
+
     }
 
     @AfterMethod(onlyForGroups = "regression", alwaysRun = true)

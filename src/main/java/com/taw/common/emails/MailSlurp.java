@@ -8,11 +8,11 @@ import java.io.IOException;
 public class MailSlurp extends Global {
 
     public String authenticate(){
-        //System.out.println($string("mailSlurpAPIKey"));
+        System.out.println($string("mailSlurpAPIKey"));
         String command = String.format("curl -H x-api-key:%s -X POST https://api.mailslurp.com/inboxes", $string("mailSlurpAPIKey"));
         //String command = String.format("curl -X GET -H x-api-key:461e538e3e32172ed3833d917e964191131af397d42806cf020d892e20dcbcb9 https://api.mailslurp.com/user/info -H 'accept: */*'");
        // String command = String.format("curl -v -X 'GET' 'https://api.mailslurp.com/emails?page=0&size=20&sort=ASC&unreadOnly=false&apiKey=%s'",$string("mailSlurpAPIKey"));
-        System.out.println(command);
+        //System.out.println(command);
         Process process;
         String response = null;
         try {

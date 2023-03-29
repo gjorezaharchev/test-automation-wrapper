@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class JSONUtils {
 
 
-    public JSONObject convertResponseToJSONObject(String responseString) {
+    public JSONObject getJSONObject(String responseString) {
         try {
             JSONObject jsonObj = new JSONObject(responseString);
             return jsonObj;
@@ -30,8 +30,10 @@ public class JSONUtils {
                 "\"height\" : 163,    \n" +
                 "\"lastOverScore\" : [4, 1, 6, 6, 2, 1]  \n" +
                 "}  ";
+        System.out.println(getJSONObject(a).get("id"));
+        /*
         Gson g = new Gson();
-        String pr = g.toJson(g);
-        System.out.println(pr);
+        String pr = g.toJson(a);
+        System.out.println(pr);*/
     }
 }

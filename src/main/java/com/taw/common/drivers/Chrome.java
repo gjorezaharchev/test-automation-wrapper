@@ -32,11 +32,8 @@ public class Chrome extends Global implements Drivers {
         } else {
             System.out.println("Your OS is not support!!");
         }*/
-        if (OSValidator.isUnix(OS)) {
-            System.setProperty("webdriver.chrome.driver", drivers + "chromedriver");
-        } else {
+
             WebDriverManager.chromedriver().setup();
-        }
 
 
         if (System.getProperty("remote", "false").equalsIgnoreCase("true")) {
@@ -69,6 +66,7 @@ public class Chrome extends Global implements Drivers {
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--enable-automation");
         chromeOptions.addArguments("--ignore-certificate-errors");
+        chromeOptions.addArguments("--remote-allow-origins=*");
 
 
 
