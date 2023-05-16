@@ -10,13 +10,13 @@ import java.util.List;
 /**
  * @author gjore.zaharchev
  */
-class ElementBase extends Global {
+public class ElementBase extends Global {
 
     /**
      * @param by provide locator
      * @return single WebElement
      */
-    WebElement getElement(final By by) {
+    public WebElement getElement(final By by) {
         return waitElement.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
@@ -24,7 +24,7 @@ class ElementBase extends Global {
      * @param by provide locator
      * @return list of WebElement
      */
-    List<WebElement> getAllElements(final By by) {
+    public List<WebElement> getAllElements(final By by) {
         return waitElement.until(ExpectedConditions.visibilityOfAllElementsLocatedBy((by)));
     }
 }

@@ -1,0 +1,56 @@
+{
+  "HomePage": {
+    "username": [
+      {
+        "identifier": "ID",
+        "locator": "usrField"
+      }
+    ],
+    "password": [
+      {
+        "identifier": "ID",
+        "locator": "password"
+      }
+    ],
+    "loginBtn": [
+      {
+        "identifier": "ID",
+        "locator": "loginBtn"
+      }
+    ]
+  },
+  "EmailPage": {
+    "email": [
+      {
+        "identifier": "ID",
+        "locator": "usrField1"
+      }
+    ]
+  },
+  "ProfilePage": {
+    "email": [
+      {
+        "identifier": "ID",
+        "locator": "usrField1"
+      }
+    ],
+    "phone": [
+      {
+        "identifier": "ID",
+        "locator": "password"
+      }
+    ],
+    "phone2": [
+      {
+        "identifier": "ID",
+        "locator": "password"
+      }
+    ],
+    "phone3": [
+      {
+        "identifier": "ID",
+        "locator": "password"
+      }
+    ]
+  }
+}

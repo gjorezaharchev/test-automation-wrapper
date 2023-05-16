@@ -1,23 +1,64 @@
 package com.taw.common.locators;
 
-import com.google.gson.Gson;
+import org.apache.commons.io.IOUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.openqa.selenium.By;
-import org.openqa.selenium.SearchContext;
-import org.openqa.selenium.WebElement;
 
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.Map;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Iterator;
 
 public class L {
     private static String xpath;
-    public static By jsonObj(String jsonObject)
-    {
+    private static String identifier;
+    private static String locator;
 
-        Locators locators = Locators.valueOf("ID");
-        switch (locators){
+
+    public static By l(String jsonObject) {
+
+        InputStream is = null;
+        try {
+            is = new FileInputStream("src/test/resources/Locators/Locators.json");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        String jsonTxt = null;
+        try {
+            jsonTxt = IOUtils.toString(is, "UTF_8");
+            is.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        JSONObject json = new JSONObject(jsonTxt);
+        Iterator iterator = json.keys();
+        int i = 0;
+
+        while (iterator.hasNext()) {
+
+            System.out.println(String.valueOf(json.keys().next()) + i++);
+            String pageStr = (String) iterator.next();
+            JSONObject page = json.getJSONObject(pageStr);
+
+            JSONArray loc = page.getJSONArray(jsonObject);
+            JSONObject element = loc.getJSONObject(0);
+            identifier = element.getString("identifier");
+            locator = element.getString("locator");
+            System.out.println(identifier + locator);
+            if (locator != null) {
+                break;
+            }
+
+        }
+
+        String locators = locator;
+        Locators locatorsEnum = Locators.valueOf(identifier);
+
+        switch (locatorsEnum) {
             case ID:
                 xpath = "//*[@id='" + locators + "']";
                 break;
@@ -39,38 +80,18 @@ public class L {
             case XPATH:
                 xpath = String.valueOf(locators);
                 break;
-            default:
-                System.out.println("unsupported locator");
+            case CONTAINSTEXT:
+                xpath = "//*[contains(text(),'" + locators + "')]";
                 break;
-
+            case DATA:
+                xpath = "//*[@data='" + locators + "']";
+                break;
         }
 
 
-        // returned the xpath formed along with By Class
+        // returned the xpath formed along with By
         return By.xpath(xpath);
     }
 
-    public static void main(String[] args){
-        try {
-            // create Gson instance
-            Gson gson = new Gson();
 
-            // create a reader
-            Reader reader = Files.newBufferedReader(Paths.get("src/test/resources/locators/HomePage.json"));
-
-            // convert JSON file to map
-            Map<?, ?> map = gson.fromJson(reader, Map.class);
-
-            // print map entries
-            for (Map.Entry<?, ?> entry : map.entrySet()) {
-                System.out.println(entry.getKey() + "=" + entry.getValue());
-            }
-
-            // close reader
-            reader.close();
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
 }

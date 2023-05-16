@@ -2,7 +2,6 @@ package com.taw.common.drivers;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.taw.common.Global;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 

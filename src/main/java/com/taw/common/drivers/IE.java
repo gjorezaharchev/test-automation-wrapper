@@ -1,7 +1,6 @@
 package com.taw.common.drivers;
 
 import com.taw.common.Global;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -20,7 +19,7 @@ public class IE extends Global implements Drivers {
             System.setProperty("webdriver.ie.driver", System.getProperty(
                     "webdriver.ie.driver", drivers + "IEDriverServer64.exe"));
         }*/
-        WebDriverManager.iedriver().setup();
+
         driver = new InternetExplorerDriver(ieo());
         driver.manage().deleteAllCookies();
         return null;
@@ -31,7 +30,7 @@ public class IE extends Global implements Drivers {
         InternetExplorerOptions internetExplorerOptions = new InternetExplorerOptions();
         internetExplorerOptions.setCapability(InternetExplorerDriver.FORCE_CREATE_PROCESS, true);
         internetExplorerOptions.setCapability(InternetExplorerDriver.IE_SWITCHES, "-private");
-        internetExplorerOptions.setCapability(InternetExplorerDriver.UNEXPECTED_ALERT_BEHAVIOR, "");
+       // internetExplorerOptions.setCapability(InternetExplorerDriver.UNEXPECTED_ALERT_BEHAVIOR, "");
         internetExplorerOptions.setCapability("ignoreProtectedModeSettings", true);
         internetExplorerOptions.setCapability("ie.ensureCleanSession", true);
         internetExplorerOptions.setCapability("acceptSslCerts", true);

@@ -2,7 +2,6 @@ package com.taw.common.drivers;
 
 import com.taw.common.Global;
 import com.taw.common.utility.Constants;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -30,7 +29,7 @@ public class Firefox extends Global implements Drivers {
         } else {
             System.out.println("Your OS is not support!!");
         }*/
-        WebDriverManager.firefoxdriver().setup();
+
         if (System.getProperty("remote", "false").equalsIgnoreCase("true")) {
             /*FirefoxOptions firefoxOptions = new FirefoxOptions();
             String headless = System.getProperty("headless","false");

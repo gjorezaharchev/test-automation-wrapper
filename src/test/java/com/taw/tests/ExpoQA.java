@@ -22,6 +22,9 @@ public class ExpoQA extends Actions {
     }
     @Test(groups = "regression")
     private void seetest() {
+        System.out.println("__________________");
+        System.out.println(extract.attributeValue(By.name("q"), "style1"));
+        System.out.println("__________________");
         input.type(username, "gjore");
         input.type(password, "MyP@$$w0rd");
         button.click(loginBtn);

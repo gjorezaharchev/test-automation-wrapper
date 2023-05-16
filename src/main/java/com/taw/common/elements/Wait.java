@@ -228,6 +228,17 @@ public class Wait extends ElementBase {
         }
     }
 
+    /**
+     * @param timeout timeout
+     */
+    public void sleep_in_seconds(final long timeout) {
+        try {
+            Thread.sleep(timeout * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void page_load_timeout(){
         driver.manage().timeouts().implicitlyWait(Constants.PAGE_LOAD_TIMEOUT);
     }

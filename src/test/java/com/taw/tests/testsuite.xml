@@ -11,7 +11,7 @@
         </groups>
 
         <classes>
-            <class name="com.taw.tests.TestCon"/>
+            <class name="com.taw.tests.DownloadFile"/>
         </classes>
 
     </test>

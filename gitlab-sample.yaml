@@ -1,0 +1,60 @@
+image: adoptopenjdk/maven-openjdk13-openj9
+
+stages:
+  - test
+
+variables:
+  ENVIRONMENT:
+    description: "Select environment"
+    value: "TEST"
+    options:
+      - "DEV"
+      - "TEST"
+      - "UAT"
+      - "PROD"
+
+  BROWSER:
+    description: "Select browser"
+    value: "chrome"
+    options:
+      - "chrome"
+      - "firefox"
+  SUITE:
+    description: "Select suite"
+    value: "default suite"
+    options:
+      - "default suite"
+      - "suite1"
+
+integration_test:
+  stage: test
+
+  before_script:
+    - echo "Install latest google chrome and firefox"
+    - apt-get update
+    - apt-get install google-chrome-stable
+    - apt-get install firefox
+
+  script:
+    - echo "Testing SecureCash system and sub-modules"
+    - mvn clean test
+      -DsuiteXmlFiles=${SUITE}
+      -Denvironment=${ENVIRONMENT}
+      -Dbrowser=${BROWSER}
+      -Dheadless=true
+  after_script:
+    -token=$(curl -H "Content-Type:application/json" -X POST --data '{ "client_id": "$(XRAY_CLIENT_ID)","client_secret": "$(XRAY_CLIENT_SECRET)" }'  https://xray.cloud.getxray.app/api/v2/authenticate| tr -d '"')
+
+
+     response=$(curl -H "Content-Type:
+                                                                                                                                                                                                              multipart/form-data" -X POST -F info=@issueFields.json -F results=@"target/surefire-reports/testng-results.xml" -F testInfo=@testIssueFields.json -H "Authorization: Bearer $token" https://xray.cloud.getxray.app/api/v2/import/execution/testng/multipart| tr -d '"')
+
+  #tags:
+  #  - "where to execute"
+
+  artefacts:
+    name: "Automation Reports"
+    paths:
+      - "**/extent"
+    when: always
+    expire_in: 2 weeks

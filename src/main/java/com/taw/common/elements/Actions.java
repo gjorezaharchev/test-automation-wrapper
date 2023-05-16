@@ -30,4 +30,6 @@ public class Actions extends ElementBase{
 
     protected final com.taw.common.utility.$ $ = new $();
     protected final DatePicker datePicker = new DatePicker();
+    protected final ElementBase elementBase = new ElementBase();
+    protected final Interactions interactions = new Interactions();
 }
