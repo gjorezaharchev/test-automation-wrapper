@@ -5,10 +5,11 @@ import com.taw.common.utility.Constants;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.Platform;
+import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.devtools.v108.emulation.model.DisplayFeature;
+//import org.openqa.selenium.devtools.v108.emulation.model.DisplayFeature;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -58,15 +59,43 @@ public class Chrome extends Global implements Drivers {
         return driver;
     }
 
+    private Proxy setProxy(){
+        Proxy proxy = new Proxy();
+        proxy.setAutodetect($boolean("AutodetectProxy"));
+        if($boolean("AutodetectProxy")==true){
+            proxy.setProxyAutoconfigUrl($string("ProxyAutoconfigUrl"));
+        }else {
+            proxy.setHttpProxy($string("HttpProxyWithPort"));
+
+            proxy.setSslProxy($string("SslProxyWithPort"));
+            proxy.setFtpProxy($string("FtpProxyWithPort"));
+            proxy.setSocksProxy("");
+            proxy.setNoProxy($string("NoProxyCommaSeparated"));
+            proxy.setSocksUsername($string("SocksUsername"));
+            proxy.setSocksPassword($string("SocksPassword"));
+        }
+        return proxy;
+    }
+
     private ChromeOptions options() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--disable-extensions");
         chromeOptions.addArguments("--enable-application-cache");
         chromeOptions.addArguments("--allow-running-insecure-content");
         chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--disable-setuid-sandbox");
         chromeOptions.addArguments("--enable-automation");
         chromeOptions.addArguments("--ignore-certificate-errors");
+        chromeOptions.addArguments("--ignore-ssl-errors=yes");
         chromeOptions.addArguments("--remote-allow-origins=*");
+        chromeOptions.addArguments("--disable-gpu");
+        chromeOptions.addArguments("--disable-dev-shm-using");
+
+        //chromeOptions.addArguments("--remote-debugging-port=9222");
+
+        if ($boolean("enableProxy")==true){
+            chromeOptions.setCapability("proxy", setProxy());
+        }
 
 
 

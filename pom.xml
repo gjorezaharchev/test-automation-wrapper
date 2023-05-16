@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.taw</groupId>
     <artifactId>test-automation-wrapper</artifactId>
-    <version>0.0.38</version>
+    <version>0.0.39</version>
 
     <name>test-automation-wrapper</name>
     <description>full-stack wrapper framework</description>
@@ -68,6 +68,13 @@
             <artifactId>htmlunit-driver</artifactId>
             <version>4.8.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.8.3</version>
+        </dependency>
+
     </dependencies>
 
     <build>

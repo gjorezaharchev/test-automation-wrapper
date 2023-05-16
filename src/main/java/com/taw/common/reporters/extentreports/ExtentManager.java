@@ -7,6 +7,7 @@ import com.taw.common.Global;
 
 import java.io.File;
 import java.util.Date;
+import java.util.UUID;
 
 public class ExtentManager extends Global{
     private static ExtentReports extent;
@@ -32,7 +33,9 @@ public class ExtentManager extends Global{
 
     public static String getReportName(){
         Date d = new Date();
-        String filename = "Automation_Report" + d.toString().replace(":", "_").replace(" ", "_" )+ ".html";
+        UUID uuid = UUID.randomUUID();
+
+        String filename = "Automation_Report" + d.toString().replace(":", "_").replace(" ", "_" ) + uuid +  ".html";
         return filename;
     }
 }
