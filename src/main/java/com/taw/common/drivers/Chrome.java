@@ -2,11 +2,13 @@ package com.taw.common.drivers;
 
 import com.taw.common.Global;
 import com.taw.common.utility.Constants;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.PageLoadStrategy;
-import org.openqa.selenium.Proxy;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.v108.emulation.model.DisplayFeature;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -31,6 +33,8 @@ public class Chrome extends Global implements Drivers {
             System.out.println("Your OS is not support!!");
         }*/
 
+            WebDriverManager.chromedriver().setup();
+
 
         if (System.getProperty("remote", "false").equalsIgnoreCase("true")) {
             /*ChromeOptions chromeOptions = new ChromeOptions();
@@ -54,57 +58,16 @@ public class Chrome extends Global implements Drivers {
         return driver;
     }
 
-    private Proxy setProxy() {
-        Proxy proxy = new Proxy();
-        proxy.setAutodetect($boolean("AutodetectProxy"));
-        if ($boolean("AutodetectProxy") == true) {
-            proxy.setProxyAutoconfigUrl($string("ProxyAutoconfigUrl"));
-        } else {
-            proxy.setHttpProxy($string("HttpProxyWithPort"));
-
-            proxy.setSslProxy($string("SslProxyWithPort"));
-            proxy.setFtpProxy($string("FtpProxyWithPort"));
-            proxy.setSocksProxy("");
-            proxy.setNoProxy($string("NoProxyCommaSeparated"));
-            proxy.setSocksUsername($string("SocksUsername"));
-            proxy.setSocksPassword($string("SocksPassword"));
-        }
-        return proxy;
-    }
-
     private ChromeOptions options() {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--disable-extensions");
         chromeOptions.addArguments("--enable-application-cache");
         chromeOptions.addArguments("--allow-running-insecure-content");
         chromeOptions.addArguments("--no-sandbox");
-        chromeOptions.addArguments("--disable-setuid-sandbox");
         chromeOptions.addArguments("--enable-automation");
         chromeOptions.addArguments("--ignore-certificate-errors");
-        chromeOptions.addArguments("--ignore-ssl-errors=yes");
         chromeOptions.addArguments("--remote-allow-origins=*");
-        chromeOptions.addArguments("--remote-debugging-port=9222");
-        chromeOptions.addArguments("--disable-gpu");
-        chromeOptions.addArguments("--disable-dev-shm-usage");
 
-        String pathToDownl = System.getProperty("user.home") + "\\" + Constants.$string("download.location");
-        HashMap<String, Object> chromePre = new HashMap<String, Object>();
-        chromePre.put("profile.default_content_settings.popups", Constants.$int("profile.default_content_settings.popups"));
-        chromePre.put("download.prompt_for_download", Constants.$boolean("download.prompt_for_download"));
-        chromePre.put("download.default_directory", pathToDownl);
-        chromePre.put("profile.content_settings.exceptions.automatic_downloads.*.setting", Constants.$int("profile.content_settings.exceptions.automatic_downloads.*.setting"));
-        chromeOptions.setExperimentalOption("prefs", chromePre);
-        chromeOptions.setExperimentalOption("detach", true);
-
-
-        //chromeOptions.addArguments("--user-data-dir=selenium");
-        //chromeOptions.addArguments("--user-data-dir=chrome-data");
-
-        //chromeOptions.addArguments("--remote-debugging-port=9222");
-
-        if ($boolean("enableProxy") == true) {
-            chromeOptions.setCapability("proxy", setProxy());
-        }
 
 
         String headless = System.getProperty("headless", "false");
@@ -136,7 +99,7 @@ public class Chrome extends Global implements Drivers {
             chromeOptions.setCapability("enableVideo", Constants.$boolean("enableVideo"));
             //chromeOptions.setCapability("screenResolution", "1920x1080x24");
 
-            if ($sys("selenoid", "false").equalsIgnoreCase("true")) {
+            if($sys("selenoid", "false").equalsIgnoreCase("true")){
                 Map<String, Object> selenoidOptions = new HashMap<>();
                 selenoidOptions.put("enableVNC", Constants.$boolean("enableVNC"));
                 selenoidOptions.put("enableVideo", Constants.$boolean("enableVideo"));
