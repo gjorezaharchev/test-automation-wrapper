@@ -2,13 +2,11 @@ package com.taw.common.drivers;
 
 import com.taw.common.Global;
 import com.taw.common.utility.Constants;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.devtools.v108.emulation.model.DisplayFeature;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
@@ -33,7 +31,7 @@ public class Chrome extends Global implements Drivers {
             System.out.println("Your OS is not support!!");
         }*/
 
-            WebDriverManager.chromedriver().setup();
+
 
 
         if (System.getProperty("remote", "false").equalsIgnoreCase("true")) {
@@ -67,6 +65,15 @@ public class Chrome extends Global implements Drivers {
         chromeOptions.addArguments("--enable-automation");
         chromeOptions.addArguments("--ignore-certificate-errors");
         chromeOptions.addArguments("--remote-allow-origins=*");
+
+
+        String pathToDownl = System.getProperty("user.home") + "\\" + Constants.$string("download.location");
+        HashMap<String, Object> chromePre = new HashMap<String, Object>();
+        chromePre.put("profile.default_content_settings.popups", 0);
+        chromePre.put("download.prompt_for_download", false);
+        chromePre.put("download.default_directory", pathToDownl);
+        chromePre.put("profile.content_settings.exceptions.automatic_downloads.*.setting", 1);
+        chromeOptions.setExperimentalOption("prefs", chromePre);
 
 
 
