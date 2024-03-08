@@ -65,6 +65,13 @@ public class Chrome extends Global implements Drivers {
         chromeOptions.addArguments("--enable-automation");
         chromeOptions.addArguments("--ignore-certificate-errors");
         chromeOptions.addArguments("--remote-allow-origins=*");
+        chromeOptions.addArguments("--disable-dev-shm-usage");
+        chromeOptions.addArguments("--disable-gpu");
+        chromeOptions.addArguments("--remote-debugging-port=9222");
+        chromeOptions.addArguments("--disable-infobars");
+        //chromeOptions.addArguments("--remote-debugging-pipe");
+        //chromeOptions.addArguments("--profile-directory=Default");
+        //chromeOptions.addArguments("--user-data-dir=~/.config/google-chrome");
 
 
         String pathToDownl = System.getProperty("user.home") + "\\" + Constants.$string("download.location");
@@ -74,6 +81,8 @@ public class Chrome extends Global implements Drivers {
         chromePre.put("download.default_directory", pathToDownl);
         chromePre.put("profile.content_settings.exceptions.automatic_downloads.*.setting", 1);
         chromeOptions.setExperimentalOption("prefs", chromePre);
+        //chromeOptions.setExperimentalOption("useAutomationExtension", true);
+
 
 
 
