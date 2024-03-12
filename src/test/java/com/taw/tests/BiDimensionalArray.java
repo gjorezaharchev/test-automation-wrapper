@@ -14,6 +14,7 @@ public class BiDimensionalArray extends Actions {
     @Test
     public void test1() {
         browser.open();
+        browser.maximize();
         navigate.to("https://demoqa.com/webtables");
 
 

@@ -11,8 +11,11 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -69,10 +72,6 @@ public class Chrome extends Global implements Drivers {
         chromeOptions.addArguments("--disable-gpu");
         chromeOptions.addArguments("--remote-debugging-port=9222");
         chromeOptions.addArguments("--disable-infobars");
-        //chromeOptions.addArguments("--remote-debugging-pipe");
-        //chromeOptions.addArguments("--profile-directory=Default");
-        //chromeOptions.addArguments("--user-data-dir=~/.config/google-chrome");
-
 
         String pathToDownl = System.getProperty("user.home") + "\\" + Constants.$string("download.location");
         HashMap<String, Object> chromePre = new HashMap<String, Object>();
@@ -80,6 +79,7 @@ public class Chrome extends Global implements Drivers {
         chromePre.put("download.prompt_for_download", false);
         chromePre.put("download.default_directory", pathToDownl);
         chromePre.put("profile.content_settings.exceptions.automatic_downloads.*.setting", 1);
+        chromePre.put("safebrowsing.enabled", false);
         chromeOptions.setExperimentalOption("prefs", chromePre);
         //chromeOptions.setExperimentalOption("useAutomationExtension", true);
 
@@ -95,6 +95,13 @@ public class Chrome extends Global implements Drivers {
             chromeOptions.addArguments("--disable-gpu");
             chromeOptions.addArguments("--window-size=1920,1080");
         }
+
+        String incognito = System.getProperty("incognito", "false");
+        String incognitoGlobals = Constants.$string("incognito");
+        if (incognito.equalsIgnoreCase("true") || incognitoGlobals.equalsIgnoreCase("true")) {
+            chromeOptions.addArguments("--incognito");
+        }
+
 
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 

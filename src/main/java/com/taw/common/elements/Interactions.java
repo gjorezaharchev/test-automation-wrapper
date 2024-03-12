@@ -9,4 +9,6 @@ public class Interactions extends ElementBase{
         js.executeScript("document."+jsLocator+".setAttribute('"+attributeName+"', '"+attributeValue+"')");
 
     }
+
+
 }
